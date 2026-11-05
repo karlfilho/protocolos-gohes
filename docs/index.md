@@ -35,6 +35,12 @@ Protocolos assistenciais, materiais de treinamento e consulta rápida da equipe 
 
     O que foi publicado ou revisado, do mais recente para o mais antigo.
 
+-   :material-email-outline:{ .lg } **[Fale conosco](Fale conosco.md)**
+
+    ---
+
+    Sugira mudanças, peça explicações sobre um protocolo ou avise sobre um erro. Escreva para a Coordenação.
+
 </div>
 
 !!! tip "Para achar algo rápido"
