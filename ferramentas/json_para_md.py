@@ -187,7 +187,7 @@ def main():
           f'elaborado_por: {yaml_str(d["rodape"]["elaborado_por"])}',
           f'aprovado_por: {yaml_str(d["rodape"]["aprovado_por"])}']
     if pdf_nome:
-        fm.append(f'pdf: {yaml_str("[[" + pdf_nome + "|PDF oficial assinado · revisão " + cab["revisao"] + "]]")}')
+        fm.append(f'pdf: {yaml_str("[[" + pdf_nome + "|PDF oficial · revisão " + cab["revisao"] + "]]")}')
     fm.append('relacionados:' + ('' if a.relacionado else ' []'))
     fm += [f'  - {yaml_str("[[" + r + "]]")}' for r in a.relacionado]
     fm += ['---', '',

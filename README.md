@@ -8,6 +8,8 @@ Somente o dono do repositório publica. O site não tem login nem botão de edi�
 ## Como editar
 
 A pasta `docs/` **é um cofre do Obsidian**: abra-a pelo Obsidian em *Open folder as vault*.
+O conteúdo é mantido exclusivamente pelo Claude Code. O Obsidian serve só para visualizar
+(grafo, backlinks, navegação) e o cofre tem cópia de segurança na nuvem.
 
 | Onde | O quê | Como se edita |
 |---|---|---|

@@ -7,7 +7,7 @@ Este site é mantido pela **Coordenação Médica de Tocoginecologia do Hospital
 ## Aviso de uso
 
 - O conteúdo é material de apoio e **não substitui o julgamento clínico** diante de cada paciente.
-- Em caso de divergência entre a página e o documento oficial, **vale o PDF assinado** disponível em cada protocolo.
+- Em caso de divergência entre a página e o documento oficial, **vale o PDF oficial** disponível em cada protocolo.
 - Os protocolos refletem a estrutura e os recursos do HES. Outros serviços devem adaptá-los à própria realidade.
 - Nenhuma página contém dados de pacientes.
 

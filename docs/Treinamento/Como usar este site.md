@@ -12,7 +12,7 @@ Este site reúne os protocolos e os materiais de treinamento da equipe de GO do 
 
 ## Ler um protocolo
 
-Todo protocolo começa com uma ficha: código, número da revisão, data e quem elaborou e aprovou. Logo abaixo, o botão do **PDF oficial**, que é o documento assinado e prevalece sobre a página em caso de divergência.
+Todo protocolo começa com uma ficha: código, número da revisão, data e quem elaborou e aprovou. Logo abaixo, o botão do **PDF oficial**, que prevalece sobre a página em caso de divergência.
 
 O texto segue a mesma ordem do documento oficial. Os fluxogramas ficam na seção 5. Por exemplo, os de [[Perda gestacional precoce#5. Fluxograma]]. Toque em uma figura para abri-la em tela cheia e ampliar.
 

@@ -301,7 +301,7 @@ def cartao_protocolo(m, pagina):
     if rel:
         partes += ['**Veja também:** ' + ' · '.join(rel), '']
     partes += ['!!! info "Este protocolo não substitui o julgamento clínico"',
-               '    Em caso de divergência, vale o documento oficial assinado (PDF acima).', '']
+               '    Em caso de divergência, vale o documento oficial (PDF acima).', '']
     return '\n'.join(partes) + '\n'
 
 

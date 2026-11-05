@@ -15,7 +15,7 @@ Protocolos assistenciais, materiais de treinamento e consulta rápida da equipe 
 
     ---
 
-    Condutas aprovadas pela Coordenação, com fluxogramas, quadros de doses e o PDF oficial assinado.
+    Condutas aprovadas pela Coordenação, com fluxogramas, quadros de doses e o PDF oficial.
 
 -   :material-school-outline:{ .lg } **[Treinamento](Treinamento/index.md)**
 

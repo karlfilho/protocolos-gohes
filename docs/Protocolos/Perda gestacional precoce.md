@@ -3,12 +3,12 @@ tipo: protocolo
 codigo: "PRI-PROV-01"
 assunto: "Protocolo de Diagnóstico e Conduta na Perda Gestacional Precoce"
 origem: "Coordenação Médica de Tocoginecologia"
-revisao: "001"
-data_revisao: "14/10/2026"
+revisao: "002"
+data_revisao: "05/11/2026"
 emissao: "19/09/2026"
 elaborado_por: "Karl Richard Busse Filho"
 aprovado_por: "Cláudia Nassif"
-pdf: "[[PRI-PROV-01 Perda gestacional precoce rev001.pdf|PDF oficial assinado · revisão 001]]"
+pdf: "[[PRI-PROV-01 Perda gestacional precoce rev002.pdf|PDF oficial · revisão 002]]"
 relacionados: []
 ---
 
@@ -333,5 +333,6 @@ Atendimento 24 horas: Pronto Atendimento obstétrico do Hospital Estadual de Sum
 
 | Revisão | Data | Revisão efetuada |
 |---|---|---|
+| 002 | 05/11/2026 | Figura 2 corrigida: os critérios definitivos de inviabilidade remetem ao Quadro 2 (antes, Quadro 1) |
 | 001 | 14/10/2026 | Antibioticoprofilaxia no esvaziamento cirúrgico alterada para doxiciclina 200 mg VO (SFP 2025), item 4 e Quadro de doses |
 | 000 | 19/09/2026 | Emissão inicial |
