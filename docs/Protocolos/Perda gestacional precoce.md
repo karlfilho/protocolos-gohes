@@ -1,4 +1,5 @@
 ---
+title: "Perda gestacional precoce"
 tipo: protocolo
 codigo: "PRI-PROV-01"
 assunto: "Protocolo de Diagnóstico e Conduta na Perda Gestacional Precoce"

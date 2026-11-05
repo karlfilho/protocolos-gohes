@@ -8,7 +8,7 @@ import html, json, re, sys
 pasta, pagina = sys.argv[1], sys.argv[2]
 p = open(pagina, encoding='utf-8').read()
 corpo = p[p.find('<article'):p.find('</article>')]
-corpo = re.sub(r'</?(strong|em|b|i|a|sup|sub|span|code|mark)\b[^>]*>', '', corpo)
+corpo = re.sub(r'</?(strong|em|b|i|a|sup|sub|span|code|mark|abbr)\b[^>]*>', '', corpo)
 texto = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', corpo)))
 
 d = json.load(open(f'{pasta}/protocolo.json', encoding='utf-8'))

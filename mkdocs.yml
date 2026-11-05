@@ -4,7 +4,8 @@ site_url: https://karlfilho.github.io/protocolos-hes/
 copyright: >
   Coordenação Médica de Tocoginecologia — Hospital Estadual de Sumaré ·
   Material de apoio: não substitui o julgamento clínico ·
-  <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br">CC BY-NC 4.0</a>
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br">CC BY-NC 4.0</a> ·
+  <a href="mailto:karl.filho@funcamp.unicamp.br">Fale conosco</a>
 
 docs_dir: docs
 edit_uri: ""
@@ -55,7 +56,7 @@ extra_css:
 
 extra:
   generator: false
-  ordem_menu: [index, Protocolos, Treinamento, Wiki, Novidades, Sobre]
+  ordem_menu: [index, Protocolos, Treinamento, Wiki, Novidades, Sobre, Fale conosco]
 
 hooks:
   - hooks/wiki.py

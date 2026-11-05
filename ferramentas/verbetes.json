@@ -1,0 +1,129 @@
+{
+  "_leia": "Cada verbete da Wiki é uma seleção de trechos dos protocolos, copiados sem alteração. Seletores: quadro (id, linhas opcionais = inícios da 1ª célula), secao (início do título do item; inclui subitens), paragrafo (início do texto; com_lista inclui a lista seguinte), item (início de um item de lista), destaque (início), figura (id).",
+  "verbetes": [
+    {
+      "titulo": "Critérios de inviabilidade gestacional",
+      "aliases": ["Gestação inviável", "Critérios da SRU"],
+      "descricao": "Critérios ultrassonográficos definitivos de gestação inviável e achados suspeitos.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "A USG deve ser transvaginal"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "O diagnóstico definitivo de abortamento retido"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "criterios"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "Os limiares de 7 mm", "com_lista": true},
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "Achados sugestivos"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "suspeitos"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "figura", "id": "comsaco"}
+      ]
+    },
+    {
+      "titulo": "Formas clínicas do abortamento",
+      "aliases": ["Definições de abortamento"],
+      "descricao": "Ameaça de abortamento, abortamento retido, incompleto, completo e infectado.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "definicoes"}
+      ]
+    },
+    {
+      "titulo": "Misoprostol",
+      "aliases": [],
+      "descricao": "Esquema no esvaziamento uterino medicamentoso e quando não prescrever.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "secao", "secao": "conteudo", "inicio": "Esvaziamento medicamentoso"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "doses", "linhas": ["Esvaziamento medicamentoso"]},
+        {"protocolo": "Perda gestacional precoce", "tipo": "destaque", "secao": "conteudo", "inicio": "**Nenhum esvaziamento"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "Enquanto a localização da gestação"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "item", "secao": "conteudo", "inicio": "**Sem USG anterior de gestação intrauterina**"}
+      ]
+    },
+    {
+      "titulo": "Aspiração intrauterina",
+      "aliases": ["AMIU", "Esvaziamento uterino cirúrgico"],
+      "descricao": "Técnica de escolha no esvaziamento cirúrgico, profilaxia e seguimento.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "secao", "secao": "conteudo", "inicio": "Esvaziamento cirúrgico"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "doses", "linhas": ["Profilaxia no esvaziamento cirúrgico"]},
+        {"protocolo": "Perda gestacional precoce", "tipo": "destaque", "secao": "conteudo", "inicio": "**Nenhum esvaziamento"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "item", "secao": "conteudo", "inicio": "**Após esvaziamento cirúrgico não complicado**"}
+      ]
+    },
+    {
+      "titulo": "Antibioticoprofilaxia no esvaziamento uterino",
+      "aliases": ["Doxiciclina"],
+      "descricao": "Doxiciclina no esvaziamento cirúrgico; alternativa na alergia.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "Antibioticoprofilaxia em todo esvaziamento cirúrgico"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "doses", "linhas": ["Profilaxia no esvaziamento cirúrgico"]}
+      ]
+    },
+    {
+      "titulo": "Imunoglobulina anti-D",
+      "aliases": ["Anti-D"],
+      "descricao": "Quando administrar na perda gestacional precoce e dose disponível no HES.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "item", "secao": "conteudo", "inicio": "**Imunoglobulina anti-D**"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "doses", "linhas": ["Imunoglobulina anti-D"]}
+      ]
+    },
+    {
+      "titulo": "Abortamento infectado",
+      "aliases": [],
+      "descricao": "Definição, urgência e esquema antibiótico.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "definicoes", "linhas": ["Abortamento infectado"]},
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "É urgência a paciente", "com_lista": true},
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "No abortamento infectado"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "doses", "linhas": ["Abortamento infectado"]}
+      ]
+    },
+    {
+      "titulo": "Gestação de localização desconhecida",
+      "aliases": ["Localização desconhecida"],
+      "descricao": "Conduta sem saco gestacional intrauterino e quando não há USG disponível.",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "quadro", "id": "definicoes", "linhas": ["Gestação de localização desconhecida"]},
+        {"protocolo": "Perda gestacional precoce", "tipo": "secao", "secao": "conteudo", "inicio": "Quando a USG não está disponível"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "paragrafo", "secao": "conteudo", "inicio": "**Sem saco gestacional intrauterino**", "com_lista": true},
+        {"protocolo": "Perda gestacional precoce", "tipo": "figura", "id": "semsaco"}
+      ]
+    },
+    {
+      "titulo": "Conferência por dois médicos",
+      "aliases": ["Barreira de segurança", "Formulário de conferência"],
+      "descricao": "Barreira antes de todo esvaziamento uterino fora de urgência e o formulário (Anexo 1).",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "secao", "secao": "conteudo", "inicio": "Barreira de segurança"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "secao", "secao": "anexos", "inicio": "Anexo 1"}
+      ]
+    },
+    {
+      "titulo": "Orientação de alta na perda gestacional",
+      "aliases": [],
+      "descricao": "Retorno e seguimento por situação e a orientação escrita entregue à paciente (Anexo 2).",
+      "trechos": [
+        {"protocolo": "Perda gestacional precoce", "tipo": "secao", "secao": "conteudo", "inicio": "Alta e seguimento"},
+        {"protocolo": "Perda gestacional precoce", "tipo": "secao", "secao": "anexos", "inicio": "Anexo 2"}
+      ]
+    }
+  ],
+  "siglas": [
+    ["AMIU", "aspiração manual intrauterina", "Perda gestacional precoce"],
+    ["BCF", "batimentos cardíacos", "Perda gestacional precoce"],
+    ["CCN", "comprimento cabeça-nádega", "Perda gestacional precoce"],
+    ["CO", "Centro Obstétrico", "Perda gestacional precoce"],
+    ["DMSG", "diâmetro médio do saco gestacional", "Perda gestacional precoce"],
+    ["EV", "endovenoso", "Perda gestacional precoce"],
+    ["FEBRASGO", "Federação Brasileira das Associações de Ginecologia e Obstetrícia", "Perda gestacional precoce"],
+    ["HES", "Hospital Estadual de Sumaré", "Perda gestacional precoce"],
+    ["IG", "idade gestacional", "Perda gestacional precoce"],
+    ["NICE", "National Institute for Health and Care Excellence", "Perda gestacional precoce"],
+    ["OMS", "Organização Mundial da Saúde", "Perda gestacional precoce"],
+    ["PA", "Pronto Atendimento", "Perda gestacional precoce"],
+    ["PCR", "proteína C-reativa", "Perda gestacional precoce"],
+    ["SFP", "Society of Family Planning", "Perda gestacional precoce"],
+    ["SRU", "Society of Radiologists in Ultrasound", "Perda gestacional precoce"],
+    ["UI", "unidades internacionais", "Perda gestacional precoce"],
+    ["USG", "ultrassonografia", "Perda gestacional precoce"],
+    ["VO", "via oral", "Perda gestacional precoce"],
+    ["β-hCG", "gonadotrofina coriônica humana", "Perda gestacional precoce"]
+  ]
+}

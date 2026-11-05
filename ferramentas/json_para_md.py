@@ -38,6 +38,8 @@ SECOES = [
 ]
 
 rotulos = {}          # 'quadro:id' -> número
+numero_de = {}        # id(bloco) -> número do quadro/tabela/figura no documento inteiro
+REF_PAGINA = None     # em trechos (verbetes): remissões "Quadro N" apontam para esta página
 
 
 def numerar_rotulos(secoes):
@@ -46,6 +48,7 @@ def numerar_rotulos(secoes):
         for b in secoes.get(chave, []):
             if isinstance(b, dict) and b.get('tipo') in cont:
                 cont[b['tipo']] += 1
+                numero_de[id(b)] = cont[b['tipo']]
                 if b.get('id'):
                     rotulos[f'{b["tipo"]}:{b["id"]}'] = cont[b['tipo']]
 
@@ -63,7 +66,11 @@ def inline(t, celula=False):
         n = rotulos.get(f'{tipo}:{ident}')
         if n is None:
             sys.exit(f'referência cruzada sem destino: {m.group(0)}')
-        return f'[{n}](#{tipo}-{n})' if not celula else str(n)     # o texto já traz "Quadro"/"Figura"
+        if celula:
+            return str(n)                                          # o texto já traz "Quadro"/"Figura"
+        if REF_PAGINA:
+            return f'[[{REF_PAGINA}#{tipo}-{n}|{n}]]'
+        return f'[{n}](#{tipo}-{n})'
     t = re.sub(r'\{(quadro|tabela|figura):([^}]+)\}', ref, t)
     t = t.replace('\n\n', '<br><br>').replace('\n', '<br>')
     return t
@@ -86,15 +93,23 @@ class Conversor:
         self.cont = {'quadro': 0, 'tabela': 0, 'figura': 0}
         self.figuras = []        # (origem, destino)
 
-    def quadro(self, b, tipo):
+    def quadro(self, b, tipo, filtro=None):
+        """filtro: lista de inícios da 1ª célula — só essas linhas (trecho do quadro)."""
         self.cont[tipo] += 1
-        n = self.cont[tipo]
+        n = numero_de.get(id(b), self.cont[tipo])
         rot = 'Quadro' if tipo == 'quadro' else 'Tabela'
         ncol = len(b['cabecalho'])
-        out = [f'<a id="{tipo}-{n}"></a>', f'**{rot} {n} – {inline(b["titulo"])}**', '']
+        linhas = b['linhas']
+        if filtro:
+            linhas = [ln for ln in linhas if isinstance(ln, list) and any(str(ln[0]).startswith(f) for f in filtro)]
+            if len(linhas) != len(filtro):
+                sys.exit(f'filtro {filtro} achou {len(linhas)} linha(s) no {rot} {n}')
+        trecho = ' (linhas selecionadas)' if filtro else ''
+        ancora = '' if filtro else f'<a id="{tipo}-{n}"></a>'
+        out = [ancora, f'**{rot} {n} – {inline(b["titulo"])}{trecho}**', '']
         out.append('| ' + ' | '.join(inline(c, True) for c in b['cabecalho']) + ' |')
         out.append('|' + '---|' * ncol)
-        for ln in b['linhas']:
+        for ln in linhas:
             if isinstance(ln, dict) and 'mesclada' in ln:
                 out.append('| ' + ' | '.join([f'**{inline(ln["mesclada"], True)}**'] + [''] * (ncol - 1)) + ' |')
             else:
@@ -107,7 +122,7 @@ class Conversor:
 
     def figura(self, b):
         self.cont['figura'] += 1
-        n = self.cont['figura']
+        n = numero_de.get(id(b), self.cont['figura'])
         png = os.path.join(self.pasta, b['imagem'])
         svg = os.path.splitext(png)[0] + '.svg'
         origem = svg if os.path.exists(svg) else png
@@ -133,24 +148,33 @@ class Conversor:
             elif t == 'subsubtitulo':
                 subsub += 1
                 out += [f'#### {sec_num}.{sub}.{subsub}. {inline(b["texto"])}']
-            elif t == 'lista':
-                out += bloco_lista(b['itens'])
-            elif t == 'lista_numerada':
-                out += bloco_lista(b['itens'], numerada=True)
-            elif t in ('quadro', 'tabela'):
-                out += self.quadro(b, t)
-            elif t == 'figura':
-                out += self.figura(b)
-            elif t == 'destaque':
-                out += ['> [!danger] Atenção', '> ' + inline(b['texto'])]
-            elif t == 'nota':
-                out += ['> ' + inline(b['texto'])]
-            elif t == 'quebra_pagina':
-                continue
             else:
-                sys.exit(f'tipo de bloco desconhecido: {t}')
+                out += self.bloco(b)
             out.append('')
         return out
+
+    def bloco(self, b):
+        """Um bloco que não é título (parágrafo, lista, quadro, figura, destaque, nota)."""
+        if isinstance(b, str):
+            b = {'tipo': 'paragrafo', 'texto': b}
+        t = b.get('tipo', 'paragrafo')
+        if t == 'paragrafo':
+            return [inline(b['texto'])]
+        if t == 'lista':
+            return bloco_lista(b['itens'])
+        if t == 'lista_numerada':
+            return bloco_lista(b['itens'], numerada=True)
+        if t in ('quadro', 'tabela'):
+            return self.quadro(b, t)
+        if t == 'figura':
+            return self.figura(b)
+        if t == 'destaque':
+            return ['> [!danger] Atenção', '> ' + inline(b['texto'])]
+        if t == 'nota':
+            return ['> ' + inline(b['texto'])]
+        if t == 'quebra_pagina':
+            return []
+        sys.exit(f'tipo de bloco desconhecido: {t}')
 
 
 def yaml_str(s):
@@ -177,6 +201,7 @@ def main():
         pdf_nome = f'{a.codigo} {a.titulo} rev{cab["revisao"]}.pdf'
 
     fm = ['---',
+          f'title: {yaml_str(a.titulo)}',
           'tipo: protocolo',
           f'codigo: {yaml_str(a.codigo)}',
           f'assunto: {yaml_str(cab["assunto"])}',

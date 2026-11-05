@@ -15,7 +15,7 @@ O conteúdo é mantido exclusivamente pelo Claude Code. O Obsidian serve só par
 |---|---|---|
 | `docs/Protocolos/` | protocolos oficiais | **gerados** a partir do `protocolo.json` (skill protocolo-go-hes). Não edite o texto à mão. |
 | `docs/Treinamento/` | tutoriais em texto e vídeo | livre, no Obsidian |
-| `docs/Wiki/` | verbetes (fármacos, escores, definições) | livre, no Obsidian |
+| `docs/Wiki/` | verbetes (fármacos, critérios, definições) | **gerados** de trechos dos protocolos (`ferramentas/verbetes.json`) |
 | `docs/arquivos/` | imagens, PDFs, figuras | o Obsidian salva os anexos aqui |
 | `docs/_modelos/` | modelos de página (plugin *Templates*) | não vão para o site |
 
@@ -40,7 +40,18 @@ Um link para uma página que ainda não existe aparece com sublinhado tracejado 
 .venv/bin/python ferramentas/conferir_fidelidade.py "<pasta do protocolo>" site/protocolos/<slug>/index.html
 ```
 
-Depois, atualize `docs/Novidades.md`.
+Depois, refaça os verbetes da Wiki (eles são trechos dos protocolos) e confira:
+
+```bash
+.venv/bin/python ferramentas/gerar_verbetes.py         # lê ferramentas/verbetes.json e protocolos.json
+.venv/bin/mkdocs build --strict
+.venv/bin/python ferramentas/conferir_verbetes.py      # nenhum texto que não venha do protocolo
+```
+
+E atualize `docs/Novidades.md`.
+
+**Verbete novo:** acrescente em `ferramentas/verbetes.json` os seletores dos trechos (quadro, seção,
+parágrafo, item de lista, destaque, figura). O verbete não tem texto clínico próprio.
 
 ## Ver localmente e publicar
 

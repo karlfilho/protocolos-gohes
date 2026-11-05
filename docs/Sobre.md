@@ -14,3 +14,7 @@ Este site é mantido pela **Coordenação Médica de Tocoginecologia do Hospital
 ## Licença
 
 Conteúdo sob a licença [Creative Commons Atribuição-NãoComercial 4.0 (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br). O material pode ser copiado e adaptado para fins não comerciais, desde que a fonte seja citada.
+
+## Contato
+
+Dúvidas, sugestões e correções: veja [[Fale conosco]].

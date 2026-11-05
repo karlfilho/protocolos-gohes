@@ -40,6 +40,7 @@ arquivos = {}       # nome minúsculo do anexo -> File
 metas = {}          # src_uri -> front matter
 citado_por = {}     # src_uri alvo -> {src_uri origem}
 pendentes = {}      # texto do link -> {páginas}
+siglas = {}         # SIGLA -> significado (tabela de Wiki/Siglas.md) → dica ao passar o mouse
 slugify_titulo = None
 
 
@@ -106,7 +107,7 @@ def on_config(config):
 
 
 def on_files(files, config):
-    paginas.clear(); arquivos.clear(); metas.clear(); citado_por.clear(); pendentes.clear()
+    paginas.clear(); arquivos.clear(); metas.clear(); citado_por.clear(); pendentes.clear(); siglas.clear()
     duplicados = set()
     docs = config['docs_dir']
     for f in files:
@@ -115,6 +116,10 @@ def on_files(files, config):
         if f.is_documentation_page():
             _, m = meta_util.get_data(f.content_string)
             metas[f.src_uri] = m or {}
+            if f.src_uri == 'Wiki/Siglas.md':
+                for sg, sig in re.findall(r'^\| *([^|*\s][^|]*?) *\| *([^|]+?) *\|', f.content_string, re.M)[1:]:
+                    if not sg.startswith('-'):
+                        siglas[sg] = sig
             raiz = posixpath.splitext(f.src_uri)[0]
             chaves = {raiz.lower(), posixpath.basename(raiz).lower()}
             aliases = (m or {}).get('aliases') or []
@@ -163,7 +168,8 @@ def on_page_markdown(markdown, page, config, files):
     m = metas.get(f.src_uri, {})
     markdown = proteger_codigo(markdown, lambda t: transformar(t, f, files))
     topo = cartao_protocolo(m, f) if m.get('tipo') == 'protocolo' else ''
-    return topo + markdown + rodape_backlinks(f, files)
+    abrev = ''.join(f'\n*[{sg}]: {sig}' for sg, sig in siglas.items())
+    return topo + markdown + rodape_backlinks(f, files) + ('\n' + abrev + '\n' if abrev else '')
 
 
 def on_post_build(config):
