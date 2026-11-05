@@ -1,0 +1,157 @@
+/* Paleta Nord — https://www.nordtheme.com
+   Polar Night #2E3440 #3B4252 #434C5E #4C566A · Snow Storm #D8DEE9 #E5E9F0 #ECEFF4
+   Frost #8FBCBB #88C0D0 #81A1C1 #5E81AC · Aurora #BF616A #D08770 #EBCB8B #A3BE8C #B48EAD */
+
+:root {
+  --nord0: #2E3440; --nord1: #3B4252; --nord2: #434C5E; --nord3: #4C566A;
+  --nord4: #D8DEE9; --nord5: #E5E9F0; --nord6: #ECEFF4;
+  --nord7: #8FBCBB; --nord8: #88C0D0; --nord9: #81A1C1; --nord10: #5E81AC;
+  --nord11: #BF616A; --nord12: #D08770; --nord13: #EBCB8B; --nord14: #A3BE8C; --nord15: #B48EAD;
+}
+
+/* ---------- tema claro ---------- */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--nord0);
+  --md-primary-fg-color--light: var(--nord1);
+  --md-primary-fg-color--dark: var(--nord0);
+  --md-primary-bg-color: var(--nord6);
+  --md-accent-fg-color: #4A6D99;
+  --md-default-bg-color: #FBFCFD;
+  --md-default-fg-color: var(--nord0);
+  --md-default-fg-color--light: var(--nord3);
+  --md-typeset-color: var(--nord0);
+  --md-typeset-a-color: #3F6491;           /* Frost escurecido: contraste AA no fundo claro */
+  --md-code-bg-color: var(--nord6);
+  --md-footer-bg-color: var(--nord0);
+  --md-footer-bg-color--dark: #272C36;
+  --cartao-bg: #FFFFFF;
+  --cartao-borda: var(--nord4);
+  --tabela-cab: var(--nord5);
+  --tabela-borda: var(--nord4);
+  --pendente: var(--nord12);
+}
+
+/* ---------- tema escuro ---------- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 220;
+  --md-primary-fg-color: var(--nord1);
+  --md-primary-fg-color--light: var(--nord2);
+  --md-primary-fg-color--dark: var(--nord0);
+  --md-primary-bg-color: var(--nord6);
+  --md-accent-fg-color: var(--nord8);
+  --md-default-bg-color: var(--nord0);
+  --md-default-fg-color: var(--nord6);
+  --md-default-fg-color--light: var(--nord4);
+  --md-typeset-color: var(--nord5);
+  --md-typeset-a-color: var(--nord8);
+  --md-code-bg-color: var(--nord1);
+  --md-footer-bg-color: #272C36;
+  --md-footer-bg-color--dark: #22262F;
+  --cartao-bg: var(--nord1);
+  --cartao-borda: var(--nord2);
+  --tabela-cab: var(--nord1);
+  --tabela-borda: var(--nord2);
+  --pendente: var(--nord13);
+}
+
+/* ---------- leitura: fonte maior, linhas confortáveis ---------- */
+.md-typeset { font-size: .9rem; line-height: 1.65; }          /* 18 px */
+.md-typeset h1 { font-weight: 700; color: var(--md-default-fg-color); letter-spacing: -.01em; }
+.md-typeset h2 { font-weight: 700; margin-top: 2.2em; padding-bottom: .3em;
+                 border-bottom: 2px solid var(--cartao-borda); }
+.md-typeset h3 { font-weight: 650; }
+.md-typeset h4 { font-weight: 650; font-size: 1em; }
+.md-nav { font-size: .78rem; }
+.md-tabs__link { font-size: .8rem; font-weight: 500; opacity: .85; }
+.md-tabs__link--active, .md-tabs__link:hover { opacity: 1; }
+.md-header, .md-tabs { box-shadow: none; }
+
+/* ---------- tabelas e quadros ---------- */
+.md-typeset table:not([class]) {
+  font-size: .82rem; border: 1px solid var(--tabela-borda); border-radius: 6px;
+  box-shadow: none; display: table; width: 100%;
+}
+.md-typeset table:not([class]) th { background: var(--tabela-cab); font-weight: 650; }
+.md-typeset table:not([class]) td, .md-typeset table:not([class]) th {
+  border-top: 1px solid var(--tabela-borda); vertical-align: top; padding: .7em 1em;
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset table:not([class]) { display: block; overflow-x: auto; }
+}
+.md-typeset small { color: var(--md-default-fg-color--light); }
+
+/* figuras (fluxogramas têm fundo branco próprio) */
+.md-typeset a > img[src$=".svg"], .md-typeset a > img[src$=".png"] {
+  display: block; margin: 1em auto; border: 1px solid var(--cartao-borda);
+  border-radius: 8px; background: #fff; max-width: 100%;
+}
+
+/* ---------- quadros (admonitions) em Nord ---------- */
+.md-typeset .admonition, .md-typeset details {
+  font-size: .85rem; border-width: 0 0 0 .3rem; border-radius: 6px;
+  box-shadow: none; background: var(--cartao-bg);
+  outline: 1px solid var(--cartao-borda);
+}
+.md-typeset .admonition-title, .md-typeset summary { font-weight: 700; }
+
+.md-typeset :is(.admonition, details):is(.note, .info, .abstract) { border-color: var(--nord10); }
+.md-typeset :is(.note, .info, .abstract) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord10) 12%, transparent); }
+.md-typeset :is(.note, .info, .abstract) > :is(.admonition-title, summary)::before { background-color: var(--nord10); }
+
+.md-typeset :is(.admonition, details):is(.tip, .success) { border-color: #6E9A57; }
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord14) 20%, transparent); }
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary)::before { background-color: #6E9A57; }
+
+.md-typeset :is(.admonition, details):is(.warning) { border-color: var(--nord12); }
+.md-typeset .warning > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord13) 28%, transparent); }
+.md-typeset .warning > :is(.admonition-title, summary)::before { background-color: var(--nord12); }
+
+.md-typeset :is(.admonition, details):is(.danger, .failure, .bug) { border-color: var(--nord11); }
+.md-typeset :is(.danger, .failure, .bug) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord11) 16%, transparent); }
+.md-typeset :is(.danger, .failure, .bug) > :is(.admonition-title, summary)::before { background-color: var(--nord11); }
+
+.md-typeset :is(.admonition, details):is(.question, .example) { border-color: var(--nord15); }
+.md-typeset :is(.question, .example) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord15) 16%, transparent); }
+.md-typeset :is(.question, .example) > :is(.admonition-title, summary)::before { background-color: var(--nord15); }
+
+/* ---------- ficha do protocolo ---------- */
+.ficha-protocolo {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: .1rem;
+  background: var(--cartao-borda); border: 1px solid var(--cartao-borda);
+  border-radius: 8px; overflow: hidden; margin: 0 0 1.2em;
+}
+.ficha-protocolo > div { background: var(--cartao-bg); padding: .55rem .8rem; }
+.ficha-protocolo span { display: block; font-size: .68rem; text-transform: uppercase;
+                        letter-spacing: .05em; color: var(--md-default-fg-color--light); }
+.ficha-protocolo strong { font-size: .85rem; font-weight: 600; }
+
+.md-typeset .md-button { font-size: .8rem; padding: .45em 1.1em; border-radius: 6px; }
+
+/* ---------- página inicial: cartões ---------- */
+.md-typeset .grid.cards > ul > li, .md-typeset .grid > .card {
+  border: 1px solid var(--cartao-borda); border-radius: 10px; background: var(--cartao-bg);
+  padding: 1.1rem 1.2rem;
+}
+.md-typeset .grid.cards > ul > li:hover { border-color: var(--md-typeset-a-color); box-shadow: none; }
+.md-typeset .grid.cards .lg { color: var(--md-typeset-a-color); }
+
+/* ---------- wiki ---------- */
+.wikilink-pendente { border-bottom: 1px dashed var(--pendente); cursor: help; }
+.citado-em {
+  margin-top: 3em; padding-top: 1em; border-top: 1px solid var(--cartao-borda);
+  font-size: .8rem; color: var(--md-default-fg-color--light);
+}
+.md-typeset .video { position: relative; aspect-ratio: 16 / 9; margin: 1em 0; }
+.md-typeset .video iframe { position: absolute; inset: 0; width: 100%; height: 100%;
+                            border: 0; border-radius: 8px; }
+.md-typeset video { width: 100%; border-radius: 8px; }
+
+/* ---------- impressão ---------- */
+@media print {
+  .md-typeset { font-size: 11pt; }
+  .citado-em, .md-typeset .md-button { display: none; }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .ficha-protocolo { grid-template-columns: 1fr 1fr; }
+}

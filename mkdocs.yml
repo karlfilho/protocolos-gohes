@@ -1,0 +1,102 @@
+site_name: Tocoginecologia HES
+site_description: Protocolos assistenciais, treinamento e wiki da Ginecologia e Obstetrícia do Hospital Estadual de Sumaré
+site_url: https://karlfilho.github.io/protocolos-hes/
+copyright: >
+  Coordenação Médica de Tocoginecologia — Hospital Estadual de Sumaré ·
+  Material de apoio: não substitui o julgamento clínico ·
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.pt-br">CC BY-NC 4.0</a>
+
+docs_dir: docs
+edit_uri: ""
+exclude_docs: |
+  _modelos/
+
+theme:
+  name: material
+  language: pt-BR
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    logo: material/book-open-page-variant
+  favicon: arquivos/favicon.svg
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Tema automático
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Tema claro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Tema escuro
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - toc.follow
+    - content.tooltips
+
+extra_css:
+  - stylesheets/nord.css
+
+extra:
+  generator: false
+  ordem_menu: [index, Protocolos, Treinamento, Wiki, Novidades, Sobre]
+
+hooks:
+  - hooks/wiki.py
+
+plugins:
+  - search:
+      lang: pt
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - nl2br
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde:
+      subscript: false
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+validation:
+  omitted_files: warn
+  absolute_links: info
+  unrecognized_links: warn
+  anchors: warn

@@ -1,0 +1,6 @@
+.venv/
+site/
+__pycache__/
+docs/.obsidian/workspace*.json
+docs/.obsidian/cache
+docs/.trash/
