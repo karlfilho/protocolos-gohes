@@ -6,6 +6,7 @@ Publicações e revisões, da mais recente para a mais antiga. Mudança de condu
 
 ## Novembro de 2026
 
+- **05/11/2026:** novos artigos na Wiki: [[Abortamento infectado]], [[Antibioticoprofilaxia no esvaziamento uterino]], [[Aspiração intrauterina]] e [[Conduta expectante]].
 - **05/11/2026:** a [Wiki](Wiki/index.md) passa a ter artigos de estudo por assunto, no formato de uma enciclopédia, com referências e remissão aos itens do protocolo. Primeiro artigo publicado: [[Abortamento espontâneo]]. Os demais estão em revisão.
 - **05/11/2026:** novas páginas [[Siglas]] (o significado aparece ao passar o mouse sobre a sigla em qualquer página) e [[Fale conosco]].
 - **05/11/2026:** site no ar, em fase de teste.
