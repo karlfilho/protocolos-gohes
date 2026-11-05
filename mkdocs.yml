@@ -11,6 +11,8 @@ docs_dir: docs
 edit_uri: ""
 exclude_docs: |
   _modelos/
+draft_docs: |
+  Para revisar/
 
 theme:
   name: material
@@ -50,13 +52,14 @@ theme:
     - search.highlight
     - toc.follow
     - content.tooltips
+    - content.footnote.tooltips
 
 extra_css:
   - stylesheets/nord.css
 
 extra:
   generator: false
-  ordem_menu: [index, Protocolos, Treinamento, Wiki, Novidades, Sobre, Fale conosco]
+  ordem_menu: [Para revisar, index, Protocolos, Treinamento, Wiki, Novidades, Sobre, Fale conosco]
 
 hooks:
   - hooks/wiki.py
@@ -64,6 +67,7 @@ hooks:
 plugins:
   - search:
       lang: pt
+  - tags
 
 markdown_extensions:
   - abbr

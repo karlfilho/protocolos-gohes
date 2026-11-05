@@ -12,6 +12,10 @@ O que este hook faz (nada disso altera o conteúdo das páginas):
   front matter tipo: protocolo                     → cartão com código, revisão, PDF e relacionados
   fim de toda página                               → "Citado em": quem aponta para ela (backlinks)
   nomes de arquivo com espaço/acento               → URLs limpas (Perda gestacional precoce.md → perda-gestacional-precoce/)
+  pasta "Para revisar/" (draft_docs)               → só no `mkdocs serve` local, com faixa "Em revisão";
+                                                     fora do site e do git (.gitignore)
+  <!-- referencias -->                             → lugar das notas de rodapé [^chave] (estilo Wikipedia)
+  front matter tipo: artigo                        → linha "Publicado em / atualizado em / revisado por"
 
 Link para página que ainda não existe não quebra o build: vira texto com sublinhado
 tracejado e aparece na lista "wikilinks pendentes" no fim do build.
@@ -42,6 +46,8 @@ citado_por = {}     # src_uri alvo -> {src_uri origem}
 pendentes = {}      # texto do link -> {páginas}
 siglas = {}         # SIGLA -> significado (tabela de Wiki/Siglas.md) → dica ao passar o mouse
 slugify_titulo = None
+servindo = False    # mkdocs serve (prévia local) mostra a pasta "Para revisar"
+REVISAO = 'Para revisar'
 
 
 # ------------------------------------------------------------------ utilidades
@@ -97,6 +103,11 @@ def link_relativo(origem, destino):
 
 
 # ------------------------------------------------------------------ eventos
+def on_startup(command, dirty):
+    global servindo
+    servindo = command == 'serve'
+
+
 def on_config(config):
     global slugify_titulo
     toc = config['mdx_configs'].get('toc', {})
@@ -113,6 +124,8 @@ def on_files(files, config):
     for f in files:
         if f.src_dir != docs:
             continue
+        if f.inclusion.is_excluded() and not (servindo and f.inclusion.is_in_serve()):
+            continue                                    # rascunho fora do build do site
         if f.is_documentation_page():
             _, m = meta_util.get_data(f.content_string)
             metas[f.src_uri] = m or {}
@@ -168,8 +181,27 @@ def on_page_markdown(markdown, page, config, files):
     m = metas.get(f.src_uri, {})
     markdown = proteger_codigo(markdown, lambda t: transformar(t, f, files))
     topo = cartao_protocolo(m, f) if m.get('tipo') == 'protocolo' else ''
+    em_revisao = f.src_uri.startswith(REVISAO + '/') and not f.src_uri.endswith('index.md')
+    if m.get('tipo') == 'artigo':
+        topo = linha_datas(m, em_revisao) + topo
+    if em_revisao:
+        topo = ('!!! danger "Em revisão — não publicado"\n'
+                '    Esta página só aparece na prévia local. Vai ao site depois da sua aprovação.\n\n') + topo
+    markdown = markdown.replace('<!-- referencias -->', '///Footnotes Go Here///')
     abrev = ''.join(f'\n*[{sg}]: {sig}' for sg, sig in siglas.items())
     return topo + markdown + rodape_backlinks(f, files) + ('\n' + abrev + '\n' if abrev else '')
+
+
+def linha_datas(m, em_revisao):
+    if em_revisao:
+        partes = ['Em revisão'] + ([f'atualizado em {m["atualizado"]}'] if m.get('atualizado') else [])
+    else:
+        partes = [f'Publicado em {m["publicado"]}'] if m.get('publicado') else []
+        if m.get('atualizado') and m.get('atualizado') != m.get('publicado'):
+            partes.append(f'atualizado em {m["atualizado"]}')
+        if m.get('revisado_por'):
+            partes.append(f'revisado por {m["revisado_por"]}')
+    return f'<p class="artigo-datas">{" · ".join(partes)}</p>\n\n' if partes else ''
 
 
 def on_post_build(config):
@@ -220,7 +252,10 @@ def wikilink(m, pagina):
     url = link_relativo(pagina, alvo)
     if secao:
         url += '#' + slugify_titulo(secao, '-')
-    rotulo = texto or (f'{titulo(alvo)} › {secao}' if secao else titulo(alvo))
+    rotulo = texto or (f'{nome} › {secao}' if secao else nome)     # como no Obsidian: o texto escrito
+    if secao and metas.get(alvo.src_uri, {}).get('tipo') == 'protocolo' \
+            and metas.get(pagina.src_uri, {}).get('tipo') != 'protocolo':
+        return f'[{rotulo}]({url}){{ .link-protocolo }}'            # remissão a item de protocolo: etiqueta
     return f'[{rotulo}]({url})'
 
 
@@ -276,6 +311,13 @@ def lista(pasta, pagina):
             m = metas[f.src_uri]
             linhas.append(f'| [{titulo(f)}]({link_relativo(pagina, f)}) | {m.get("codigo", "")} '
                           f'| {m.get("revisao", "")} | {m.get("data_revisao", "")} |')
+        return '\n'.join(linhas)
+    if pasta == REVISAO:
+        linhas = ['| Artigo | Assunto | Atualizado em |', '|---|---|---|']
+        for f in itens:
+            m = metas[f.src_uri]
+            linhas.append(f'| [{titulo(f)}]({link_relativo(pagina, f)}) | {m.get("descricao", "")} '
+                          f'| {m.get("atualizado", "")} |')
         return '\n'.join(linhas)
     linhas = []
     for f in itens:

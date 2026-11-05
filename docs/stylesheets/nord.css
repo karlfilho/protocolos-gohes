@@ -155,3 +155,21 @@
 @media screen and (max-width: 44.9375em) {
   .ficha-protocolo { grid-template-columns: 1fr 1fr; }
 }
+
+/* ---------- artigos da wiki ---------- */
+.md-typeset .artigo-datas { font-size: .74rem; color: var(--md-default-fg-color--light); margin: -.8em 0 1.4em; }
+.md-typeset .footnote { font-size: .78rem; }
+.md-typeset .footnote ol { margin-left: 1.2em; }
+.md-typeset .md-tag { font-size: .68rem; background: var(--tabela-cab); }
+/* chamadas de nota como na Wikipedia: [1][2] */
+.md-typeset .footnote-ref::before { content: "["; }
+.md-typeset .footnote-ref::after { content: "]"; }
+/* remissão a um item de protocolo (artigos da wiki) */
+.md-typeset a.link-protocolo {
+  font-size: .76em; font-weight: 650; white-space: nowrap; text-decoration: none;
+  padding: .12em .55em; border-radius: 4px; vertical-align: .08em;
+  background: color-mix(in srgb, var(--nord10) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--nord10) 35%, transparent);
+}
+.md-typeset a.link-protocolo::before { content: "▸ "; }
+.md-typeset a.link-protocolo:hover { background: color-mix(in srgb, var(--nord10) 26%, transparent); }

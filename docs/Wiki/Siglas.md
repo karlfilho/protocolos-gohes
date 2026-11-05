@@ -1,10 +1,11 @@
 ---
 title: Siglas
-tipo: verbete
+tipo: artigo
 descricao: "Siglas usadas nos protocolos, com o significado escrito no próprio protocolo."
+tags: [Referência rápida]
 ---
 
-%% Gerado por ferramentas/gerar_verbetes.py. Não edite aqui. %%
+%% Gerado por ferramentas/gerar_siglas.py. Não edite aqui. %%
 
 Passe o mouse (ou toque) sobre uma sigla em qualquer página do site para ver o significado.
 
