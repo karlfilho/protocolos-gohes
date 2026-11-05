@@ -27,7 +27,7 @@ Protocolos assistenciais, materiais de treinamento e consulta rápida da equipe 
 
     ---
 
-    Verbetes de consulta (medicamentos, escores, definições), ligados aos protocolos que os usam.
+    Artigos de estudo por assunto, com as evidências, as referências e a conduta adotada no HES.
 
 -   :material-update:{ .lg } **[Novidades](Novidades.md)**
 
