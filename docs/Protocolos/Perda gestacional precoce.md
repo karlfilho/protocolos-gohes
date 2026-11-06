@@ -4,12 +4,12 @@ tipo: protocolo
 codigo: "PRI-PROV-01"
 assunto: "Protocolo de Diagnóstico e Conduta na Perda Gestacional Precoce"
 origem: "Coordenação Médica de Tocoginecologia"
-revisao: "002"
-data_revisao: "05/11/2026"
-emissao: "19/09/2026"
+revisao: "003"
+data_revisao: "06/11/2026"
+emissao: "14/10/2026"
 elaborado_por: "Karl Richard Busse Filho"
 aprovado_por: "Cláudia Nassif"
-pdf: "[[PRI-PROV-01 Perda gestacional precoce rev002.pdf|PDF oficial · revisão 002]]"
+pdf: "[[PRI-PROV-01 Perda gestacional precoce rev003.pdf|PDF oficial · revisão 003]]"
 relacionados: []
 ---
 
@@ -207,7 +207,7 @@ A regra vale para a prescrição de misoprostol e para a solicitação de AMIU, 
 
 - **Ameaça de abortamento**: orientação e retorno ao pré-natal; retornar se o sangramento piorar ou persistir por mais de 14 dias. Não se prescreve progesterona de rotina [1,3].
 - **Conduta expectante**: retorno agendado ao PA/CO em 7 a 14 dias para USG e nova decisão; retorno antes se houver sangramento intenso, dor ou febre [3].
-- **Após expulsão** (expectante, medicamentosa) **e abortamento completo**: a confirmação é clínica, pela resolução do sangramento e da dor. O hospital fornece teste urinário de gravidez para ser feito em casa 3 semanas depois; se positivo, ou se houver sangramento intenso, dor ou febre mesmo com teste negativo, a paciente retorna para USG e reavaliação [3]. Não se faz USG de controle de rotina: coágulos logo após a expulsão podem ser confundidos com restos e motivar procedimentos desnecessários [1].
+- **Após expulsão** (expectante, medicamentosa) **e abortamento completo**: a confirmação é clínica, pela resolução do sangramento e da dor. A paciente é orientada a fazer um teste urinário de gravidez na unidade básica de saúde 3 semanas depois; se positivo, ou se houver sangramento intenso, dor ou febre mesmo com teste negativo, a paciente retorna para USG e reavaliação [3]. Não se faz USG de controle de rotina: coágulos logo após a expulsão podem ser confundidos com restos e motivar procedimentos desnecessários [1].
 - **Após esvaziamento cirúrgico não complicado**: não há necessidade de retorno de rotina; a paciente recebe orientação escrita dos sinais de alarme [15].
 - Toda paciente recebe a orientação escrita de alta (Anexo 2).
 
@@ -250,7 +250,7 @@ O fluxo assistencial está representado em quatro figuras: triagem (Figura [1](#
 
 | Função | Atribuições |
 |---|---|
-| Médico assistente do plantão | Conduzir a avaliação inicial sem toque bimanual; realizar o exame especular; solicitar a USG transvaginal e os exames de admissão; classificar o achado da USG pelos critérios deste protocolo; decidir a conduta com a paciente e registrá-la em prontuário; preencher, assinar e carimbar o Anexo 1 antes de todo esvaziamento fora de urgência; entregar e explicar a orientação escrita de alta e, quando indicado, o teste urinário de gravidez. |
+| Médico assistente do plantão | Conduzir a avaliação inicial sem toque bimanual; realizar o exame especular; solicitar a USG transvaginal e os exames de admissão; classificar o achado da USG pelos critérios deste protocolo; decidir a conduta com a paciente e registrá-la em prontuário; preencher, assinar e carimbar o Anexo 1 antes de todo esvaziamento fora de urgência; entregar e explicar a orientação escrita de alta, incluindo, quando indicado, o teste urinário de gravidez na unidade básica de saúde. |
 | Médico conferente (outro médico do plantão, não residente) | Conferir o critério diagnóstico assinalado com o laudo e as imagens da USG antes do esvaziamento; assinar e carimbar o Anexo 1; recusar a conferência se o critério não estiver documentado. |
 | Médico residente | Participar do atendimento sob supervisão do médico assistente, seguindo este protocolo. Não atua como médico conferente. |
 | Médico ultrassonografista | Realizar USG transvaginal com registro de CCN, DMSG, vesícula vitelina e BCF, e anexar as imagens com as medidas ao prontuário. |
@@ -322,7 +322,7 @@ O fluxo assistencial está representado em quatro figuras: triagem (Figura [1](#
 Você foi atendida no Hospital Estadual de Sumaré por sangramento ou por alteração no início da gestação. Siga as orientações abaixo e guarde este papel.
 
 - Retorno agendado: \_\_\_\_/\_\_\_\_/\_\_\_\_\_\_ às \_\_\_\_h\_\_\_\_, no Pronto Atendimento obstétrico, para: ( ) ultrassonografia  ( ) reavaliação.
-- Teste de gravidez de urina em 3 semanas (se entregue): data \_\_\_\_/\_\_\_\_/\_\_\_\_\_\_. Se der positivo, volte ao hospital.
+- Faça um teste de gravidez de urina na unidade básica de saúde em 3 semanas: data \_\_\_\_/\_\_\_\_/\_\_\_\_\_\_. Se der positivo, volte ao hospital.
 - É esperado ter cólicas e sangramento parecido com menstruação por alguns dias.
 
 > [!danger] Atenção
@@ -334,6 +334,6 @@ Atendimento 24 horas: Pronto Atendimento obstétrico do Hospital Estadual de Sum
 
 | Revisão | Data | Revisão efetuada |
 |---|---|---|
+| 003 | 06/11/2026 | Teste urinário de gravidez de controle passa a ser feito na unidade básica de saúde, não mais fornecido pelo hospital (item 4.9, Quadro 5 e Anexo 2) |
 | 002 | 05/11/2026 | Figura 2 corrigida: os critérios definitivos de inviabilidade remetem ao Quadro 2 (antes, Quadro 1) |
 | 001 | 14/10/2026 | Antibioticoprofilaxia no esvaziamento cirúrgico alterada para doxiciclina 200 mg VO (SFP 2025), item 4 e Quadro de doses |
-| 000 | 19/09/2026 | Emissão inicial |

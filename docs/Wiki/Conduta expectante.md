@@ -5,7 +5,7 @@ aliases: [Conduta expectante no abortamento, Tratamento expectante]
 descricao: Aguardar a eliminação espontânea após o diagnóstico de perda gestacional; indicações, exceções e seguimento.
 tags: [Primeiro trimestre, Tratamento]
 publicado: 05/11/2026
-atualizado: 05/11/2026
+atualizado: 06/11/2026
 revisado_por: Karl Richard Busse Filho
 ---
 
@@ -41,7 +41,7 @@ O protocolo do HES adota as mesmas indicações [[Perda gestacional precoce#4.6.
 O protocolo [[Perda gestacional precoce]] adota a conduta expectante por 7 a 14 dias como primeira linha (recomendação condicional; certeza moderada) ([[Perda gestacional precoce#4.6. Conduta após o diagnóstico confirmado|item 4.6]]). O seguimento ([[Perda gestacional precoce#4.9. Alta e seguimento|item 4.9]]):
 
 - retorno marcado ao Pronto Atendimento ou Centro Obstétrico em 7 a 14 dias, para USG e nova decisão;
-- teste urinário de gravidez em casa três semanas após a eliminação.
+- teste urinário de gravidez na unidade básica de saúde três semanas após a eliminação.
 
 ## Veja também
 

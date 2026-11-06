@@ -5,7 +5,7 @@ aliases: [Aborto espontâneo, Perda gestacional, Ameaça de abortamento, Abortam
 descricao: Interrupção espontânea da gestação no início da gravidez; formas clínicas, diagnóstico, conduta e seguimento.
 tags: [Primeiro trimestre]
 publicado: 05/11/2026
-atualizado: 05/11/2026
+atualizado: 06/11/2026
 revisado_por: Karl Richard Busse Filho
 ---
 
@@ -60,7 +60,7 @@ Medidas que valem para todas as pacientes:
 
 ## Seguimento
 
-Após a expulsão na conduta expectante ou medicamentosa, o NICE orienta um teste urinário de gravidez em casa três semanas depois. Teste positivo, ou sangramento intenso, dor ou febre mesmo com teste negativo, pedem reavaliação.[^nice] A USG de controle de rotina logo após a expulsão é desaconselhada, porque coágulos podem ser confundidos com restos e motivar procedimentos desnecessários.[^febrasgo] O HES segue as duas orientações [[Perda gestacional precoce#4.9. Alta e seguimento|protocolo, item 4.9]].
+Após a expulsão na conduta expectante ou medicamentosa, o NICE orienta um teste urinário de gravidez em casa três semanas depois. Teste positivo, ou sangramento intenso, dor ou febre mesmo com teste negativo, pedem reavaliação.[^nice] A USG de controle de rotina logo após a expulsão é desaconselhada, porque coágulos podem ser confundidos com restos e motivar procedimentos desnecessários.[^febrasgo] No HES, não se faz USG de controle de rotina, e o teste urinário é feito na unidade básica de saúde, três semanas depois [[Perda gestacional precoce#4.9. Alta e seguimento|protocolo, item 4.9]].
 
 Após aspiração não complicada, a OMS considera desnecessário o retorno de rotina, desde que a paciente receba orientação sobre os sinais de alarme.[^oms] [[Perda gestacional precoce#4.9. Alta e seguimento|protocolo, item 4.9]]
 
