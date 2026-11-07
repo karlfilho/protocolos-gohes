@@ -42,7 +42,7 @@ O protocolo [[Perda gestacional precoce]] segue o esquema da FEBRASGO ([[Perda g
 - **Antibiótico primeiro:** a antibioticoterapia começa antes do esvaziamento.
 - **Duração:** a via endovenosa é mantida até 48 horas afebril e com melhora clínica.
 - **Esvaziamento:** por aspiração; curetagem só se a aspiração estiver indisponível.
-- **Urgência:** a [[Conferência por dois médicos]] é dispensada, com a justificativa registrada em prontuário.
+- **Urgência:** a conferência por dois médicos ([[Perda gestacional precoce#4.7. Barreira de segurança: conferência por dois médicos|protocolo, item 4.7]]) é dispensada, com a justificativa registrada em prontuário.
 
 ## Veja também
 

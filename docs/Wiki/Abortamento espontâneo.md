@@ -75,7 +75,7 @@ O atendimento segue o protocolo [[Perda gestacional precoce]] (PRI-PROV-01). Em 
 - USG transvaginal primeiro, sem toque bimanual. O exame especular é feito em todas as pacientes ([[Perda gestacional precoce#4.2. Avaliação inicial|item 4.2]]).
 - O estado do colo não indica esvaziamento ([[Exame pélvico na perda gestacional]]).
 - A conduta expectante é a primeira linha ([[Perda gestacional precoce#4.6. Conduta após o diagnóstico confirmado|item 4.6]]).
-- Nenhum esvaziamento fora de urgência é feito sem a [[Conferência por dois médicos]] ([[Perda gestacional precoce#4.7. Barreira de segurança: conferência por dois médicos|item 4.7]]).
+- Nenhum esvaziamento fora de urgência é feito sem a conferência por dois médicos ([[Perda gestacional precoce#4.7. Barreira de segurança: conferência por dois médicos|item 4.7]]).
 - Na ameaça de abortamento, não se prescreve progesterona de rotina ([[Perda gestacional precoce#4.9. Alta e seguimento|item 4.9]]).
 
 ## Veja também

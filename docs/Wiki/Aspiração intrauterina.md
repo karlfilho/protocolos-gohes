@@ -43,7 +43,7 @@ O protocolo [[Perda gestacional precoce]] define ([[Perda gestacional precoce#4.
 - **Técnica:** a aspiração intrauterina (AMIU ou elétrica) é a técnica de escolha.
 - **Curetagem:** só se a aspiração estiver indisponível no plantão, com o motivo registrado em prontuário.
 - **Revisão com cureta:** não se faz depois da aspiração.
-- **Conferência:** fora de urgência, o procedimento só é solicitado com a [[Conferência por dois médicos]].
+- **Conferência:** fora de urgência, o procedimento só é solicitado com a conferência por dois médicos ([[Perda gestacional precoce#4.7. Barreira de segurança: conferência por dois médicos|protocolo, item 4.7]]).
 
 ## Veja também
 
