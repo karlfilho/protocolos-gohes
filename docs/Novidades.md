@@ -6,6 +6,7 @@ Publicações e revisões, da mais recente para a mais antiga. Mudança de condu
 
 ## Novembro de 2026
 
+- **07/11/2026:** novos artigos na Wiki: [[Causas da perda gestacional precoce]], [[Viabilidade e prematuridade]], [[Instabilidade hemodinâmica]] e [[Avaliação do volume do sangramento]]. A coluna de texto do site ficou 20% mais larga, e as datas das calculadoras passaram a ser digitadas no formato dd/mm/aaaa.
 - **07/11/2026:** nova seção [Ferramentas](Ferramentas/index.md), com calculadoras, checklists e fluxogramas dos protocolos. Primeira calculadora: [[Calculadora de idade gestacional]], pela DUM, pela USG ou pelas duas.
 - **07/11/2026:** novos artigos na Wiki: [[Formas clínicas do abortamento]], [[Repercussões emocionais da perda gestacional]] e [[Ultrassonografia da gestação inicial]].
 - **06/11/2026:** novos artigos na Wiki: [[Critérios ultrassonográficos de inviabilidade]], [[Exame pélvico na perda gestacional]], [[Gestação de localização desconhecida]], [[Imunoglobulina anti-D no primeiro trimestre]] e [[Misoprostol]]. Todos os artigos de estudo da perda gestacional precoce estão publicados.

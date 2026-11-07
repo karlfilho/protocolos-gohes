@@ -17,7 +17,7 @@ As **formas clínicas do abortamento** são as categorias em que se divide a per
 
 Na norma técnica do Ministério da Saúde, **abortamento** é a interrupção da gravidez até a 20ª ou 22ª semana, com produto da concepção pesando menos de 500 g, e **aborto** é o produto da concepção eliminado no abortamento.[^ms2011] Na prática e em textos mais recentes, os dois termos são usados como sinônimos: o Manual de Gestação de Alto Risco fala em "aborto espontâneo" e o considera precoce, ou de primeiro trimestre, até 12 semanas e 6 dias.[^ms2022]
 
-O limite superior varia entre países e sociedades. A Organização Mundial da Saúde (OMS) usa o peso fetal menor que 500 g, equivalente a cerca de 22 semanas; a American Society for Reproductive Medicine, 20 semanas; a European Society of Human Reproduction and Embryology (ESHRE), 22 semanas; e o Reino Unido fixa a viabilidade, por lei, em 24 semanas.[^quenby]
+O limite superior varia entre países e sociedades. A Organização Mundial da Saúde (OMS) usa o peso fetal menor que 500 g, equivalente a cerca de 22 semanas; a American Society for Reproductive Medicine, 20 semanas; a European Society of Human Reproduction and Embryology (ESHRE), 22 semanas; e o Reino Unido fixa a viabilidade, por lei, em 24 semanas.[^quenby] Ver [[Viabilidade e prematuridade]].
 
 ### Perda bioquímica e perda clínica
 
@@ -111,6 +111,7 @@ O atendimento segue o protocolo [[Perda gestacional precoce]] (PRI-PROV-01). Em 
 - [[Exame pélvico na perda gestacional]]
 - [[Gestação de localização desconhecida]] · [[Abortamento infectado]]
 - [[Causas da perda gestacional precoce]]
+- [[Viabilidade e prematuridade]]
 
 ## Referências
 

@@ -10,20 +10,20 @@ Calcula a idade gestacional (IG) e a data provável do parto (DPP) pela data da 
 <div class="calc calc-ig" markdown="0">
   <div class="calc-linha">
     <label for="ig-ref">Data de referência</label>
-    <input type="date" id="ig-ref">
+    <input type="text" id="ig-ref" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off">
   </div>
   <fieldset>
     <legend>Pela DUM</legend>
     <div class="calc-linha">
       <label for="ig-dum">Data da última menstruação</label>
-      <input type="date" id="ig-dum">
+      <input type="text" id="ig-dum" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off">
     </div>
   </fieldset>
   <fieldset>
     <legend>Pela USG</legend>
     <div class="calc-linha">
       <label for="ig-usg-data">Data da USG</label>
-      <input type="date" id="ig-usg-data">
+      <input type="text" id="ig-usg-data" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off">
     </div>
     <div class="calc-linha">
       <label for="ig-usg-sem">IG no laudo</label>

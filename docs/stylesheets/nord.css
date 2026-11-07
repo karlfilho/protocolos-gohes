@@ -188,6 +188,10 @@
 .md-typeset .calc input:focus { outline: 2px solid var(--md-accent-fg-color); outline-offset: 1px; }
 .md-typeset .calc-ig-laudo input { width: 4.5rem; }
 .md-typeset .calc input[type="text"] { width: 8rem; }
+.md-typeset .calc input.calc-data { width: 9.5rem; letter-spacing: .02em; }
+.md-typeset .calc-medidas { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: .4rem .8rem; }
+.md-typeset .calc-medidas label { display: flex; flex-direction: column; gap: .2rem; }
+.md-typeset .calc-medidas input { width: 100%; }
 .md-typeset .calc-ajuda { font-size: .8em; color: var(--md-default-fg-color--light); margin: .2rem 0 0; }
 .md-typeset .calc-resultado { margin: .8rem 0; padding: .6rem .8rem; border-radius: .3rem;
   background: var(--tabela-cab); }
@@ -197,3 +201,6 @@
 .md-typeset .calc-erro { color: var(--nord11); }
 .md-typeset .calc-nota { border-top: 1px solid var(--tabela-borda); padding-top: .4rem; }
 .md-typeset .calc-vazio { color: var(--md-default-fg-color--light); }
+
+/* ---------- coluna de texto 20% mais larga (61rem -> 68rem) ---------- */
+.md-grid { max-width: 68rem; }
