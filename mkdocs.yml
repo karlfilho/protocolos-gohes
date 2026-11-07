@@ -57,9 +57,12 @@ theme:
 extra_css:
   - stylesheets/nord.css
 
+extra_javascript:
+  - javascripts/calculadoras.js
+
 extra:
   generator: false
-  ordem_menu: [Para revisar, index, Protocolos, Treinamento, Wiki, Novidades, Sobre, Fale conosco]
+  ordem_menu: [Para revisar, index, Protocolos, Ferramentas, Treinamento, Wiki, Novidades, Sobre, Fale conosco]
 
 hooks:
   - hooks/wiki.py

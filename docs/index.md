@@ -17,6 +17,12 @@ Protocolos assistenciais, materiais de treinamento e consulta rápida da equipe 
 
     Condutas aprovadas pela Coordenação, com fluxogramas, quadros de doses e o PDF oficial.
 
+-   :material-calculator-variant-outline:{ .lg } **[Ferramentas](Ferramentas/index.md)**
+
+    ---
+
+    Calculadoras, checklists e fluxogramas dos protocolos, para usar à beira do leito.
+
 -   :material-school-outline:{ .lg } **[Treinamento](Treinamento/index.md)**
 
     ---

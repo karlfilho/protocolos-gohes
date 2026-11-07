@@ -173,3 +173,27 @@
 }
 .md-typeset a.link-protocolo::before { content: "▸ "; }
 .md-typeset a.link-protocolo:hover { background: color-mix(in srgb, var(--nord10) 26%, transparent); }
+
+/* ---------- calculadoras ---------- */
+.md-typeset .calc { border: 1px solid var(--cartao-borda); background: var(--cartao-bg);
+  border-radius: .4rem; padding: .8rem 1rem; margin: 1.2em 0; max-width: 36rem; }
+.md-typeset .calc fieldset { border: 1px solid var(--cartao-borda); border-radius: .3rem;
+  padding: .4rem .8rem .6rem; margin: .8rem 0; }
+.md-typeset .calc legend { font-weight: 700; padding: 0 .3rem; }
+.md-typeset .calc-linha { display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: .3rem .8rem; margin: .4rem 0; }
+.md-typeset .calc-linha label { flex: 1 1 12rem; }
+.md-typeset .calc input { font: inherit; color: var(--md-typeset-color); background: var(--md-default-bg-color);
+  border: 1px solid var(--cartao-borda); border-radius: .25rem; padding: .25rem .4rem; min-height: 2.2rem; }
+.md-typeset .calc input:focus { outline: 2px solid var(--md-accent-fg-color); outline-offset: 1px; }
+.md-typeset .calc-ig-laudo input { width: 4.5rem; }
+.md-typeset .calc input[type="text"] { width: 8rem; }
+.md-typeset .calc-ajuda { font-size: .8em; color: var(--md-default-fg-color--light); margin: .2rem 0 0; }
+.md-typeset .calc-resultado { margin: .8rem 0; padding: .6rem .8rem; border-radius: .3rem;
+  background: var(--tabela-cab); }
+.md-typeset .calc-resultado p { margin: .3rem 0; }
+.md-typeset .calc-rotulo { display: inline-block; min-width: 5.5rem; font-size: .8em; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--md-default-fg-color--light); }
+.md-typeset .calc-erro { color: var(--nord11); }
+.md-typeset .calc-nota { border-top: 1px solid var(--tabela-borda); padding-top: .4rem; }
+.md-typeset .calc-vazio { color: var(--md-default-fg-color--light); }

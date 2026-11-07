@@ -86,8 +86,8 @@ def proteger_codigo(md, funcao):
 
 
 def separar(alvo):
-    """'Página#Seção|texto' -> ('Página', 'Seção', 'texto')"""
-    alvo, _, texto = alvo.partition('|')
+    """'Página#Seção|texto' -> ('Página', 'Seção', 'texto'); aceita '\\|' (link dentro de tabela)."""
+    alvo, _, texto = alvo.replace('\\|', '|').partition('|')
     alvo, _, secao = alvo.partition('#')
     return alvo.strip(), secao.strip(), texto.strip()
 
@@ -304,7 +304,8 @@ def lista(pasta, pagina):
          if posixpath.dirname(f.src_uri) == pasta and not f.src_uri.endswith('index.md')),
         key=lambda f: titulo(f).lower())
     if not itens:
-        return '*Nenhuma página publicada ainda.*'
+        return ('*Nenhum artigo aguardando revisão.*' if pasta == REVISAO
+                else '*Nenhuma página publicada ainda.*')
     if any(metas[f.src_uri].get('codigo') for f in itens):
         linhas = ['| Protocolo | Código | Revisão | Data |', '|---|---|---|---|']
         for f in itens:

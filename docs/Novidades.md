@@ -6,6 +6,8 @@ Publicações e revisões, da mais recente para a mais antiga. Mudança de condu
 
 ## Novembro de 2026
 
+- **07/11/2026:** nova seção [Ferramentas](Ferramentas/index.md), com calculadoras, checklists e fluxogramas dos protocolos. Primeira calculadora: [[Calculadora de idade gestacional]], pela DUM, pela USG ou pelas duas.
+- **07/11/2026:** novos artigos na Wiki: [[Formas clínicas do abortamento]], [[Repercussões emocionais da perda gestacional]] e [[Ultrassonografia da gestação inicial]].
 - **06/11/2026:** novos artigos na Wiki: [[Critérios ultrassonográficos de inviabilidade]], [[Exame pélvico na perda gestacional]], [[Gestação de localização desconhecida]], [[Imunoglobulina anti-D no primeiro trimestre]] e [[Misoprostol]]. Todos os artigos de estudo da perda gestacional precoce estão publicados.
 - **06/11/2026:** [[Perda gestacional precoce]] (PRI-PROV-01) passa à **revisão 003**, **revisão de conduta**: o teste urinário de gravidez de controle, 3 semanas após a expulsão ou o abortamento completo, passa a ser feito na unidade básica de saúde e deixa de ser fornecido pelo hospital (item 4.9, Quadro 5 e Anexo 2). Os artigos [[Conduta expectante]] e [[Abortamento espontâneo]] foram atualizados.
 - **05/11/2026:** novos artigos na Wiki: [[Abortamento infectado]], [[Antibioticoprofilaxia no esvaziamento uterino]], [[Aspiração intrauterina]] e [[Conduta expectante]].
