@@ -6,6 +6,7 @@ Publicações e revisões, da mais recente para a mais antiga. Mudança de condu
 
 ## Novembro de 2026
 
+- **08/11/2026:** nova seção [Teste seu conhecimento](Questões/index.md), com questões comentadas para estudar. Nada é registrado. Primeiro questionário: [[Questões sobre perda gestacional precoce]].
 - **08/11/2026:** novos artigos na Wiki: [[Parto com fórceps]] e [[Episiotomia]].
 - **08/11/2026:** a [[Calculadora de idade gestacional]] passou a indicar quando redatar a gestação pela USG, segundo a tabela do American College of Obstetricians and Gynecologists, e aceita CCN de 15 a 84 mm.
 - **08/11/2026:** nova [[Calculadora de peso fetal estimado]], pelas fórmulas e pela curva de Hadlock. O site ganhou um menu de temas no cabeçalho: automático, Nord e Catppuccin Latte (claros), Tokyo Night e Retro 82 (escuros).

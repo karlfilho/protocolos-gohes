@@ -280,6 +280,9 @@ def callouts(texto):
             corpo.append(re.sub(rf'^{re.escape(ind)}> ?', '', linhas[i]))
             i += 1
         tipo = m['tipo'].lower()
+        if tipo in ('questao', 'questão'):
+            out += questao(m['titulo'].strip(), corpo)
+            continue
         tipo = TIPOS_CALLOUT.get(tipo, tipo)
         marca = {'': '!!!', '+': '???+', '-': '???'}[m['dobra']]
         titulo_c = m['titulo'].strip().replace('"', '&quot;')
@@ -288,6 +291,31 @@ def callouts(texto):
         out += [(ind + '    ' + ln) if ln.strip() else '' for ln in callouts('\n'.join(corpo)).split('\n')]
         out.append('')
     return '\n'.join(out)
+
+
+ALTERNATIVA = re.compile(r'^\s*[-*] \[(?P<x>[ xX])\]\s+(?P<texto>.+)$')
+
+
+def questao(enunciado, corpo):
+    """> [!questao] Enunciado / > - [ ] errada / > - [x] certa / > comentário  →  questão clicável.
+    No Obsidian, o mesmo texto aparece como quadro com a alternativa certa marcada."""
+    antes, alts, depois = [], [], []
+    for ln in corpo:
+        m = ALTERNATIVA.match(ln)
+        if m:
+            alts.append((m['x'] != ' ', m['texto'].strip()))
+        elif alts:
+            depois.append(ln)
+        else:
+            antes.append(ln)
+    html_ = ['', '<div class="quiz" markdown="1">', '',
+             f'<p class="quiz-enunciado" markdown="span">{enunciado}</p>', '']
+    html_ += antes + ['', '<ol class="quiz-alternativas" markdown="1">']
+    html_ += [f'<li class="quiz-alt" data-certa="{int(certa)}" tabindex="0" role="button" markdown="span">{txt}</li>'
+              for certa, txt in alts]
+    html_ += ['</ol>', '', '<div class="quiz-comentario" hidden markdown="1">', '']
+    html_ += depois + ['', '</div>', '', '</div>', '']
+    return html_
 
 
 def youtube(video_id):

@@ -293,3 +293,23 @@
   color: var(--md-typeset-a-color); border-color: currentColor; }
 :is([data-md-color-primary="latte"], [data-md-color-primary="tokyo"], [data-md-color-primary="retro"]) .md-typeset .md-button:is(:hover, :focus) {
   color: var(--md-default-bg-color); background: var(--md-typeset-a-color); border-color: var(--md-typeset-a-color); }
+
+/* ---------- questões (Teste seu conhecimento) ---------- */
+.md-typeset .quiz { border: 1px solid var(--cartao-borda); background: var(--cartao-bg);
+  border-radius: .4rem; padding: .9rem 1.1rem; margin: 1.4em 0; }
+.md-typeset .quiz-enunciado { font-weight: 650; margin-top: 0; }
+.md-typeset .quiz-alternativas { list-style: upper-alpha; margin: .6em 0 .6em 1.4em; padding: 0; }
+.md-typeset .quiz-alternativas > li.quiz-alt { margin: .35em 0; padding: .45em .7em; border-radius: .3rem;
+  border: 1px solid var(--cartao-borda); cursor: pointer; }
+.md-typeset .quiz-alt:hover, .md-typeset .quiz-alt:focus-visible { background: var(--tabela-cab);
+  outline: 2px solid var(--md-accent-fg-color); outline-offset: 1px; }
+.md-typeset .quiz-alt[aria-disabled="true"] { cursor: default; }
+.md-typeset .quiz-alt[aria-disabled="true"]:hover { background: none; outline: none; }
+.md-typeset .quiz-alt.quiz-certa { border-color: var(--c-ok); background: color-mix(in srgb, var(--c-ok-fundo) 18%, transparent); }
+.md-typeset .quiz-alt.quiz-errada { border-color: var(--c-perigo); background: color-mix(in srgb, var(--c-perigo) 14%, transparent); }
+.md-typeset .quiz-alt.quiz-certa::after { content: " ✓"; font-weight: 700; color: var(--c-ok); }
+.md-typeset .quiz-alt.quiz-errada::after { content: " ✗"; font-weight: 700; color: var(--c-perigo); }
+.md-typeset .quiz-comentario { border-top: 1px solid var(--tabela-borda); margin-top: .8em; padding-top: .4em; }
+.md-typeset .quiz-aviso { font-weight: 700; color: var(--c-ok); }
+.md-typeset .quiz-aviso--erro { color: var(--c-perigo); }
+.md-typeset .quiz-refazer { margin-top: .4em; }

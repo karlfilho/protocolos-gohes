@@ -35,6 +35,12 @@ Protocolos assistenciais, materiais de treinamento e consulta rápida da equipe 
 
     Artigos de estudo por assunto, com as evidências, as referências e a conduta adotada no HES.
 
+-   :material-head-question-outline:{ .lg } **[Teste seu conhecimento](Questões/index.md)**
+
+    ---
+
+    Questões comentadas sobre os protocolos e os artigos da Wiki, para estudar. Nada é registrado.
+
 -   :material-update:{ .lg } **[Novidades](Novidades.md)**
 
     ---
