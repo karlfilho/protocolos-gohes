@@ -1,7 +1,7 @@
 # Tocoginecologia HES: protocolos, treinamento e wiki
 
 Site estático (MkDocs Material + paleta Nord) publicado no GitHub Pages:
-<https://karlfilho.github.io/protocolos-hes/>
+<https://karlfilho.github.io/protocolos-gohes/>
 
 Somente o dono do repositório publica. O site não tem login nem botão de edição.
 
@@ -54,13 +54,13 @@ Artigos de estudo no formato de enciclopédia, escritos pelo Claude Code com bas
 ```bash
 .venv/bin/python ferramentas/referencias.py     # escreve as referências no fim de cada artigo
 .venv/bin/python ferramentas/gerar_siglas.py    # tabela de siglas (ferramentas/siglas.json)
-.venv/bin/mkdocs serve --no-livereload          # prévia: http://127.0.0.1:8000/protocolos-hes/para-revisar/
+.venv/bin/mkdocs serve --no-livereload          # prévia: http://127.0.0.1:8000/protocolos-gohes/para-revisar/
 ```
 
 ## Ver localmente e publicar
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # primeira vez
-.venv/bin/mkdocs serve        # http://127.0.0.1:8000/protocolos-hes/, recarrega ao salvar
+.venv/bin/mkdocs serve        # http://127.0.0.1:8000/protocolos-gohes/, recarrega ao salvar
 git add -A && git commit -m "…" && git push   # a Action publica em ~2 min
 ```
