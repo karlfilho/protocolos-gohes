@@ -34,9 +34,9 @@ Calcula a idade gestacional (IG) e a data provável do parto (DPP) pela data da 
     </div>
     <div class="calc-linha">
       <label for="ig-ccn">ou CCN (mm)</label>
-      <input type="text" id="ig-ccn" inputmode="decimal" placeholder="15 a 95">
+      <input type="text" id="ig-ccn" inputmode="decimal" placeholder="15 a 84">
     </div>
-    <p class="calc-ajuda">Se o CCN for preenchido, ele é usado no lugar da IG do laudo.</p>
+    <p class="calc-ajuda">Informe a primeira USG acurada da gestação. Se o CCN for preenchido, ele é usado no lugar da IG do laudo.</p>
   </fieldset>
   <div class="calc-resultado" id="ig-resultado" aria-live="polite"></div>
   <button type="button" class="md-button" id="ig-limpar">Limpar</button>
@@ -46,11 +46,33 @@ Calcula a idade gestacional (IG) e a data provável do parto (DPP) pela data da 
 
 - **Pela DUM:** a IG é o tempo decorrido desde o primeiro dia da última menstruação. A DPP é a DUM mais 280 dias (40 semanas).[^ms2022]
 - **Pela IG do laudo:** a IG do dia do exame é somada ao tempo decorrido desde a USG.
-- **Pelo CCN:** a IG do dia do exame é calculada pela fórmula do INTERGROWTH-21st, IG (dias) = 40,9041 + 3,21585 × √CCN + 0,348956 × CCN, com o CCN em milímetros. A fórmula vale para CCN de 15 a 95 mm.[^papageorghiou] Entre 9 e 13 semanas, o CCN cresce rápido e varia pouco entre gestações da mesma idade, o que torna a datação precisa.[^papageorghiou] Ver [[Ultrassonografia da gestação inicial]].
+- **Pelo CCN:** a IG do dia do exame é calculada pela fórmula do INTERGROWTH-21st, IG (dias) = 40,9041 + 3,21585 × √CCN + 0,348956 × CCN, com o CCN em milímetros.[^papageorghiou] A calculadora aceita CCN de 15 a 84 mm. A fórmula não vale abaixo de 15 mm.[^papageorghiou] Acima de 84 mm (cerca de 14 semanas), o CCN perde precisão, e a datação deve usar outras medidas.[^acog700] Ver [[Ultrassonografia da gestação inicial]].
 
 ## DUM ou USG?
 
-A calculadora mostra a diferença entre as duas datações, mas não escolhe por você. O American College of Obstetricians and Gynecologists recomenda definir a IG e a DPP assim que houver a DUM, a primeira USG acurada ou ambas. A data assim definida deve ser registrada em prontuário e só deve ser mudada em circunstâncias raras. A gestação sem USG que confirme ou revise a DPP antes de 22 semanas é considerada datada de forma subótima.[^acog700]
+A medida do embrião ou do feto no primeiro trimestre, até 13+6 semanas, é o método mais preciso para estabelecer ou confirmar a IG. Pelo CCN, a precisão é de ±5 a 7 dias, e é maior quanto mais cedo o exame. O diâmetro médio do saco gestacional não deve ser usado para datar.[^acog700]
+
+Quando a datação pela USG e a pela DUM divergem, a calculadora aplica a tabela de redatação do American College of Obstetricians and Gynecologists (ACOG). A faixa é definida pela IG calculada pela DUM no dia da USG:[^acog700]
+
+| IG pela DUM no dia da USG | Medida | Redatar pela USG se a diferença passar de |
+|---|---|---|
+| Até 8+6 | CCN | 5 dias |
+| 9+0 a 13+6 | CCN | 7 dias |
+| 14+0 a 15+6 | DBP, CC, CA, CF | 7 dias |
+| 16+0 a 21+6 | DBP, CC, CA, CF | 10 dias |
+| 22+0 a 27+6 | DBP, CC, CA, CF | 14 dias |
+| 28+0 ou mais | DBP, CC, CA, CF | 21 dias |
+
+<small>Fonte: ACOG, Committee Opinion 700, 2017.[^acog700]</small>
+
+Outras orientações da ACOG:[^acog700]
+
+- Diferenças menores que o limite também podem justificar a redatação, conforme a IG em que a USG foi feita e a confiabilidade da DUM.
+- Se a DUM for incerta, a datação se baseia na USG, de preferência até 13+6 semanas e priorizando o exame mais precoce com CCN.
+- Se já houve uma USG de primeiro trimestre, sobretudo coerente com a DUM, a IG não deve ser ajustada por um exame do segundo trimestre.
+- No terceiro trimestre, redatar arrisca mascarar um feto pequeno, com restrição de crescimento. A decisão exige avaliar o quadro clínico completo e vigilância próxima.
+- Na gestação por reprodução assistida, a data provável do parto vem da idade do embrião e da data da transferência. Por exemplo, para um embrião de 5 dias, ela fica 261 dias após a transferência.
+- Definida a data provável do parto, ela deve ser discutida com a gestante e registrada em prontuário, e só deve ser mudada em circunstâncias raras. A gestação sem USG que confirme ou revise a data antes de 22 semanas é considerada datada de forma subótima.
 
 ## No HES
 

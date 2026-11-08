@@ -47,6 +47,18 @@
     return `<strong>${s} ${sem} e ${r} ${dia}</strong> (${s}+${r})`;
   }
 
+  /* ACOG Committee Opinion 700 (2017), Tabela 1: diferença entre USG e DUM que justifica redatar,
+     pela IG calculada pela DUM no dia da USG (em dias) */
+  const REDATAR = [
+    { ate: 62, limite: 5, nome: 'até 8+6' },
+    { ate: 97, limite: 7, nome: '9+0 a 13+6' },
+    { ate: 111, limite: 7, nome: '14+0 a 15+6' },
+    { ate: 153, limite: 10, nome: '16+0 a 21+6' },
+    { ate: 195, limite: 14, nome: '22+0 a 27+6' },
+    { ate: Infinity, limite: 21, nome: '28+0 ou mais',
+      alerta: 'No terceiro trimestre, redatar arrisca mascarar um feto com restrição de crescimento: a decisão exige avaliar o quadro clínico completo e vigilância próxima.' },
+  ];
+
   /* INTERGROWTH-21st (Papageorghiou et al., 2014): IG em dias a partir do CCN em mm, válida de 15 a 95 mm */
   function igPorCCN(ccn) {
     return 40.9041 + 3.21585 * Math.sqrt(ccn) + 0.348956 * ccn;
@@ -84,8 +96,8 @@
       let igExame = null, origem = '';
       if (ccnTxt !== '') {
         const ccn = parseFloat(ccnTxt);
-        if (isNaN(ccn) || ccn < 15 || ccn > 95) {
-          saida.push('<p class="calc-erro">O CCN precisa estar entre 15 e 95 mm, a faixa em que a fórmula do INTERGROWTH-21st é válida. Fora dela, use a IG do laudo.</p>');
+        if (isNaN(ccn) || ccn < 15 || ccn > 84) {
+          saida.push('<p class="calc-erro">O CCN precisa estar entre 15 e 84 mm. Abaixo de 15 mm, a fórmula do INTERGROWTH-21st não vale; acima de 84 mm (cerca de 14 semanas), o CCN perde precisão e a datação usa outras medidas (DBP, CC, CA, CF). Fora dessa faixa, use a IG do laudo.</p>');
         } else {
           igExame = Math.round(igPorCCN(ccn));
           origem = `CCN ${ccn.toLocaleString('pt-BR')} mm → ${ig(igExame)} no dia do exame (INTERGROWTH-21st)`;
@@ -107,12 +119,26 @@
         }
       }
 
-      /* 3. Comparação, sem decidir pelo usuário */
+      /* 3. Comparação e redatação pela tabela da ACOG (Committee Opinion 700, 2017) */
       if (dumDUM !== null && dumUSG !== null) {
         const dif = dumUSG - dumDUM;   /* positivo: a DUM dá IG maior que a USG */
+        const abs = Math.abs(dif), d = (n) => `${n} ${n === 1 ? 'dia' : 'dias'}`;
         const txt = dif === 0 ? 'As duas datações coincidem.'
-          : `A IG pela DUM está <strong>${Math.abs(dif)} ${Math.abs(dif) === 1 ? 'dia' : 'dias'} ${dif > 0 ? 'à frente' : 'atrás'}</strong> da IG pela USG.`;
-        saida.push(`<p class="calc-nota">${txt} Qual datação adotar é decisão clínica, registrada no prontuário.</p>`);
+          : `A IG pela DUM está <strong>${d(abs)} ${dif > 0 ? 'à frente' : 'atrás'}</strong> da IG pela USG.`;
+        const igDumNoExame = exame - dumDUM;   /* a tabela da ACOG usa a IG pela DUM no dia da USG */
+        const faixa = REDATAR.find((f) => igDumNoExame <= f.ate);
+        let conduta = '';
+        if (igDumNoExame < 0) {
+          conduta = 'A USG é anterior à DUM informada: confira as datas.';
+        } else if (faixa) {
+          const s = Math.floor(igDumNoExame / 7), r = igDumNoExame % 7;
+          const base = `A USG foi feita com ${s}+${r} pela DUM; nessa faixa (${faixa.nome}), a ACOG recomenda adotar a datação da USG quando a diferença passa de ${d(faixa.limite)}.`;
+          conduta = abs > faixa.limite
+            ? `${base} <strong>A diferença passa do limite: adotar a datação da USG.</strong>`
+            : `${base} <strong>A diferença está dentro do limite.</strong> Mudar a datação por diferenças menores é opcional e depende da IG do exame e da confiabilidade da DUM.`;
+          if (faixa.alerta) conduta += ` ${faixa.alerta}`;
+        }
+        saida.push(`<p class="calc-nota">${txt} ${conduta}</p>`);
       }
 
       $('ig-resultado').innerHTML = saida.length ? saida.join('')
