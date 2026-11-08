@@ -52,7 +52,7 @@ Calcula a idade gestacional (IG) e a data provável do parto (DPP) pela data da 
 
 A medida do embrião ou do feto no primeiro trimestre, até 13+6 semanas, é o método mais preciso para estabelecer ou confirmar a IG. Pelo CCN, a precisão é de ±5 a 7 dias, e é maior quanto mais cedo o exame. O diâmetro médio do saco gestacional não deve ser usado para datar.[^acog700]
 
-Quando a datação pela USG e a pela DUM divergem, a calculadora aplica a tabela de redatação do American College of Obstetricians and Gynecologists (ACOG). A faixa é definida pela IG calculada pela DUM no dia da USG:[^acog700]
+Quando a datação pela USG e a pela DUM divergem, a calculadora aplica a tabela de redatação do American College of Obstetricians and Gynecologists (ACOG). O tema está explicado no artigo [[Redatação da gestação]]. A faixa é definida pela IG calculada pela DUM no dia da USG:[^acog700]
 
 | IG pela DUM no dia da USG | Medida | Redatar pela USG se a diferença passar de |
 |---|---|---|
