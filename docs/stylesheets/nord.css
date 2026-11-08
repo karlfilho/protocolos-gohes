@@ -9,8 +9,12 @@
   --nord11: #BF616A; --nord12: #D08770; --nord13: #EBCB8B; --nord14: #A3BE8C; --nord15: #B48EAD;
 }
 
-/* ---------- tema claro ---------- */
-[data-md-color-scheme="default"] {
+/* ---------- temas: Nord e Catppuccin Latte (claros), Tokyo Night e Retro 82 (escuros) ----------
+   O Material aplica data-md-color-scheme (default/slate) e data-md-color-primary (nome do tema).
+   Tokens próprios: --cartao-*, --tabela-*, --pendente e as cores semânticas --c-* (quadros, etiquetas). */
+
+/* Nord claro (Snow Storm + Polar Night) */
+[data-md-color-scheme="default"][data-md-color-primary="nord"] {
   --md-primary-fg-color: var(--nord0);
   --md-primary-fg-color--light: var(--nord1);
   --md-primary-fg-color--dark: var(--nord0);
@@ -29,29 +33,90 @@
   --tabela-cab: var(--nord5);
   --tabela-borda: var(--nord4);
   --pendente: var(--nord12);
+  --c-info: var(--nord10); --c-ok: #6E9A57; --c-ok-fundo: var(--nord14);
+  --c-aviso: var(--nord12); --c-aviso-fundo: var(--nord13);
+  --c-perigo: var(--nord11); --c-roxo: var(--nord15);
 }
 
-/* ---------- tema escuro ---------- */
-[data-md-color-scheme="slate"] {
-  --md-hue: 220;
-  --md-primary-fg-color: var(--nord1);
-  --md-primary-fg-color--light: var(--nord2);
-  --md-primary-fg-color--dark: var(--nord0);
-  --md-primary-bg-color: var(--nord6);
-  --md-accent-fg-color: var(--nord8);
-  --md-default-bg-color: var(--nord0);
-  --md-default-fg-color: var(--nord6);
-  --md-default-fg-color--light: var(--nord4);
-  --md-typeset-color: var(--nord5);
-  --md-typeset-a-color: var(--nord8);
-  --md-code-bg-color: var(--nord1);
-  --md-footer-bg-color: #272C36;
-  --md-footer-bg-color--dark: #22262F;
-  --cartao-bg: var(--nord1);
-  --cartao-borda: var(--nord2);
-  --tabela-cab: var(--nord1);
-  --tabela-borda: var(--nord2);
-  --pendente: var(--nord13);
+/* Catppuccin Latte — https://catppuccin.com/palette */
+[data-md-color-scheme="default"][data-md-color-primary="latte"] {
+  --md-primary-fg-color: #dce0e8;           /* crust */
+  --md-primary-fg-color--light: #e6e9ef;    /* mantle */
+  --md-primary-fg-color--dark: #ccd0da;     /* surface0 */
+  --md-primary-bg-color: #4c4f69;           /* text */
+  --md-primary-bg-color--light: #5c5f77;
+  --md-accent-fg-color: #8839ef;            /* mauve */
+  --md-default-bg-color: #eff1f5;           /* base */
+  --md-default-fg-color: #4c4f69;
+  --md-default-fg-color--light: #5c5f77;    /* subtext1 */
+  --md-typeset-color: #4c4f69;
+  --md-typeset-a-color: #1a5bd6;            /* blue escurecido: contraste AA na base */
+  --md-code-bg-color: #e6e9ef;
+  --md-footer-bg-color: #dce0e8;
+  --md-footer-bg-color--dark: #ccd0da;
+  --md-footer-fg-color: #4c4f69;
+  --md-footer-fg-color--light: #5c5f77;
+  --md-footer-fg-color--lighter: #6c6f85;
+  --cartao-bg: #ffffff;
+  --cartao-borda: #ccd0da;
+  --tabela-cab: #e6e9ef;
+  --tabela-borda: #ccd0da;
+  --pendente: #fe640b;                      /* peach */
+  --c-info: #1e66f5; --c-ok: #40a02b; --c-ok-fundo: #40a02b;
+  --c-aviso: #fe640b; --c-aviso-fundo: #df8e1d;
+  --c-perigo: #d20f39; --c-roxo: #8839ef;
+}
+
+/* Tokyo Night */
+[data-md-color-scheme="slate"][data-md-color-primary="tokyo"] {
+  --md-hue: 235;
+  --md-primary-fg-color: #16161e;
+  --md-primary-fg-color--light: #1f2335;
+  --md-primary-fg-color--dark: #13141c;
+  --md-primary-bg-color: #c0caf5;
+  --md-accent-fg-color: #bb9af7;
+  --md-default-bg-color: #1a1b26;
+  --md-default-fg-color: #c0caf5;
+  --md-default-fg-color--light: #a9b1d6;
+  --md-typeset-color: #c0caf5;
+  --md-typeset-a-color: #7aa2f7;
+  --md-code-bg-color: #24283b;
+  --md-footer-bg-color: #16161e;
+  --md-footer-bg-color--dark: #13141c;
+  --cartao-bg: #24283b;
+  --cartao-borda: #414868;
+  --tabela-cab: #24283b;
+  --tabela-borda: #414868;
+  --pendente: #e0af68;
+  --c-info: #7aa2f7; --c-ok: #9ece6a; --c-ok-fundo: #9ece6a;
+  --c-aviso: #ff9e64; --c-aviso-fundo: #e0af68;
+  --c-perigo: #f7768e; --c-roxo: #bb9af7;
+}
+
+/* Retro 82 */
+[data-md-color-scheme="slate"][data-md-color-primary="retro"] {
+  --md-hue: 212;
+  --md-primary-fg-color: #031222;
+  --md-primary-fg-color--light: #0a2540;
+  --md-primary-fg-color--dark: #020c17;
+  --md-primary-bg-color: #f6dcac;
+  --md-accent-fg-color: #f85525;
+  --md-default-bg-color: #05182e;
+  --md-default-fg-color: #f6dcac;
+  --md-default-fg-color--light: #a7c9c6;
+  --md-typeset-color: #f6dcac;
+  --md-typeset-a-color: #faa968;
+  --md-code-bg-color: #0a2540;
+  --md-footer-bg-color: #031222;
+  --md-footer-bg-color--dark: #020c17;
+  --cartao-bg: #0a2540;
+  --cartao-borda: #134e5a;
+  --tabela-cab: #0a2540;
+  --tabela-borda: #134e5a;
+  --pendente: #e97b3c;
+  --c-info: #8cbfb8; --c-ok: #028391; --c-ok-fundo: #028391;
+  --c-aviso: #e97b3c; --c-aviso-fundo: #faa968;
+  --c-perigo: #f85525; --c-roxo: #3f8f8a;
 }
 
 /* ---------- leitura: fonte maior, linhas confortáveis ---------- */
@@ -94,25 +159,25 @@
 }
 .md-typeset .admonition-title, .md-typeset summary { font-weight: 700; }
 
-.md-typeset :is(.admonition, details):is(.note, .info, .abstract) { border-color: var(--nord10); }
-.md-typeset :is(.note, .info, .abstract) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord10) 12%, transparent); }
-.md-typeset :is(.note, .info, .abstract) > :is(.admonition-title, summary)::before { background-color: var(--nord10); }
+.md-typeset :is(.admonition, details):is(.note, .info, .abstract) { border-color: var(--c-info); }
+.md-typeset :is(.note, .info, .abstract) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--c-info) 12%, transparent); }
+.md-typeset :is(.note, .info, .abstract) > :is(.admonition-title, summary)::before { background-color: var(--c-info); }
 
-.md-typeset :is(.admonition, details):is(.tip, .success) { border-color: #6E9A57; }
-.md-typeset :is(.tip, .success) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord14) 20%, transparent); }
-.md-typeset :is(.tip, .success) > :is(.admonition-title, summary)::before { background-color: #6E9A57; }
+.md-typeset :is(.admonition, details):is(.tip, .success) { border-color: var(--c-ok); }
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--c-ok-fundo) 20%, transparent); }
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary)::before { background-color: var(--c-ok); }
 
-.md-typeset :is(.admonition, details):is(.warning) { border-color: var(--nord12); }
-.md-typeset .warning > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord13) 28%, transparent); }
-.md-typeset .warning > :is(.admonition-title, summary)::before { background-color: var(--nord12); }
+.md-typeset :is(.admonition, details):is(.warning) { border-color: var(--c-aviso); }
+.md-typeset .warning > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--c-aviso-fundo) 28%, transparent); }
+.md-typeset .warning > :is(.admonition-title, summary)::before { background-color: var(--c-aviso); }
 
-.md-typeset :is(.admonition, details):is(.danger, .failure, .bug) { border-color: var(--nord11); }
-.md-typeset :is(.danger, .failure, .bug) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord11) 16%, transparent); }
-.md-typeset :is(.danger, .failure, .bug) > :is(.admonition-title, summary)::before { background-color: var(--nord11); }
+.md-typeset :is(.admonition, details):is(.danger, .failure, .bug) { border-color: var(--c-perigo); }
+.md-typeset :is(.danger, .failure, .bug) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--c-perigo) 16%, transparent); }
+.md-typeset :is(.danger, .failure, .bug) > :is(.admonition-title, summary)::before { background-color: var(--c-perigo); }
 
-.md-typeset :is(.admonition, details):is(.question, .example) { border-color: var(--nord15); }
-.md-typeset :is(.question, .example) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--nord15) 16%, transparent); }
-.md-typeset :is(.question, .example) > :is(.admonition-title, summary)::before { background-color: var(--nord15); }
+.md-typeset :is(.admonition, details):is(.question, .example) { border-color: var(--c-roxo); }
+.md-typeset :is(.question, .example) > :is(.admonition-title, summary) { background: color-mix(in srgb, var(--c-roxo) 16%, transparent); }
+.md-typeset :is(.question, .example) > :is(.admonition-title, summary)::before { background-color: var(--c-roxo); }
 
 /* ---------- ficha do protocolo ---------- */
 .ficha-protocolo {
@@ -168,11 +233,11 @@
 .md-typeset a.link-protocolo {
   font-size: .76em; font-weight: 650; white-space: nowrap; text-decoration: none;
   padding: .12em .55em; border-radius: 4px; vertical-align: .08em;
-  background: color-mix(in srgb, var(--nord10) 14%, transparent);
-  border: 1px solid color-mix(in srgb, var(--nord10) 35%, transparent);
+  background: color-mix(in srgb, var(--c-info) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-info) 35%, transparent);
 }
 .md-typeset a.link-protocolo::before { content: "▸ "; }
-.md-typeset a.link-protocolo:hover { background: color-mix(in srgb, var(--nord10) 26%, transparent); }
+.md-typeset a.link-protocolo:hover { background: color-mix(in srgb, var(--c-info) 26%, transparent); }
 
 /* ---------- calculadoras ---------- */
 .md-typeset .calc { border: 1px solid var(--cartao-borda); background: var(--cartao-bg);
@@ -198,9 +263,33 @@
 .md-typeset .calc-resultado p { margin: .3rem 0; }
 .md-typeset .calc-rotulo { display: inline-block; min-width: 5.5rem; font-size: .8em; font-weight: 700;
   text-transform: uppercase; letter-spacing: .04em; color: var(--md-default-fg-color--light); }
-.md-typeset .calc-erro { color: var(--nord11); }
+.md-typeset .calc-erro { color: var(--c-perigo); }
 .md-typeset .calc-nota { border-top: 1px solid var(--tabela-borda); padding-top: .4rem; }
 .md-typeset .calc-vazio { color: var(--md-default-fg-color--light); }
 
 /* ---------- coluna de texto 20% mais larga (61rem -> 68rem) ---------- */
 .md-grid { max-width: 68rem; }
+
+/* ---------- menu de temas (cabeçalho) ---------- */
+.tema-menu { position: relative; }
+.tema-lista { position: absolute; right: 0; top: 100%; z-index: 10; min-width: 13rem; margin: .2rem 0 0;
+  padding: .3rem; list-style: none; border-radius: .4rem; border: 1px solid var(--cartao-borda);
+  background: var(--md-default-bg-color); box-shadow: 0 .4rem 1.2rem rgba(0, 0, 0, .25); }
+.tema-lista[hidden] { display: none; }
+.tema-item { display: flex; align-items: center; gap: .6rem; width: 100%; padding: .45rem .6rem;
+  border: 0; border-radius: .3rem; background: none; cursor: pointer; text-align: left;
+  font: inherit; font-size: .74rem; color: var(--md-default-fg-color); }
+.tema-item:hover, .tema-item:focus-visible { background: var(--tabela-cab); outline: none; }
+.tema-item[aria-pressed="true"] { font-weight: 700; }
+.tema-item[aria-pressed="true"]::after { content: "✓"; margin-left: auto; color: var(--md-typeset-a-color); }
+.tema-amostra { flex: none; width: 1.1rem; height: 1.1rem; border-radius: 50%; border: 1px solid rgba(127, 127, 127, .45); }
+.tema-amostra[data-amostra="auto"]  { background: linear-gradient(135deg, #ECEFF4 50%, #1a1b26 50%); }
+.tema-amostra[data-amostra="nord"]  { background: linear-gradient(135deg, #ECEFF4 50%, #5E81AC 50%); }
+.tema-amostra[data-amostra="latte"] { background: linear-gradient(135deg, #eff1f5 50%, #8839ef 50%); }
+.tema-amostra[data-amostra="tokyo"] { background: linear-gradient(135deg, #1a1b26 50%, #7aa2f7 50%); }
+.tema-amostra[data-amostra="retro"] { background: linear-gradient(135deg, #05182e 50%, #faa968 50%); }
+/* botões (Limpar, PDF oficial): nos temas em que o cabeçalho tem a cor do fundo, usar a cor dos links */
+:is([data-md-color-primary="latte"], [data-md-color-primary="tokyo"], [data-md-color-primary="retro"]) .md-typeset .md-button {
+  color: var(--md-typeset-a-color); border-color: currentColor; }
+:is([data-md-color-primary="latte"], [data-md-color-primary="tokyo"], [data-md-color-primary="retro"]) .md-typeset .md-button:is(:hover, :focus) {
+  color: var(--md-default-bg-color); background: var(--md-typeset-a-color); border-color: var(--md-typeset-a-color); }

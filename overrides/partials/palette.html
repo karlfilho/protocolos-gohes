@@ -1,0 +1,22 @@
+{#- Seletor de temas: substitui o botão que alterna os temas um a um.
+    Os inputs de rádio continuam sendo os do Material (o JS dele aplica e guarda o tema);
+    o menu fica fora do <form> porque o Material troca de tema ao teclar Enter dentro dele. -#}
+<form class="md-header__option" data-md-component="palette">
+  {% for option in config.theme.palette %}
+    {% set scheme  = option.scheme  | d("default", true) %}
+    {% set primary = option.primary | d("indigo", true) %}
+    {% set accent  = option.accent  | d("indigo", true) %}
+    <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ scheme | replace(' ', '-') }}" data-md-color-primary="{{ primary | replace(' ', '-') }}" data-md-color-accent="{{ accent | replace(' ', '-') }}" aria-label="{{ option.toggle.name }}" type="radio" name="__palette" id="__palette_{{ loop.index0 }}">
+    <span hidden></span>
+  {% endfor %}
+</form>
+<div class="md-header__option tema-menu">
+  <button type="button" class="md-header__button md-icon tema-botao" aria-haspopup="true" aria-expanded="false" aria-controls="tema-lista" title="Tema" aria-label="Escolher tema">
+    {% include ".icons/material/palette-outline.svg" %}
+  </button>
+  <ul class="tema-lista" id="tema-lista" hidden>
+    {% for option in config.theme.palette %}
+      <li><button type="button" class="tema-item" data-tema="{{ loop.index0 }}" aria-pressed="false"><span class="tema-amostra" data-amostra="{{ 'auto' if option.media == '(prefers-color-scheme)' else option.primary }}"></span>{{ option.toggle.name }}</button></li>
+    {% endfor %}
+  </ul>
+</div>

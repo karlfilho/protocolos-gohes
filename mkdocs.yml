@@ -16,6 +16,7 @@ draft_docs: |
 
 theme:
   name: material
+  custom_dir: overrides
   language: pt-BR
   font:
     text: Inter
@@ -23,25 +24,40 @@ theme:
   icon:
     logo: material/book-open-page-variant
   favicon: arquivos/favicon.svg
-  palette:
+  palette:                     # o menu de temas fica em overrides/partials/palette.html
     - media: "(prefers-color-scheme)"
+      scheme: default
+      primary: nord
+      accent: nord
       toggle:
         icon: material/brightness-auto
-        name: Tema automático
+        name: Automático (segue o sistema)
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: custom
-      accent: custom
+      primary: nord
+      accent: nord
       toggle:
-        icon: material/weather-sunny
-        name: Tema claro
+        icon: material/palette-outline
+        name: Nord
+    - scheme: default
+      primary: latte
+      accent: latte
+      toggle:
+        icon: material/palette-outline
+        name: Catppuccin Latte
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: custom
-      accent: custom
+      primary: tokyo
+      accent: tokyo
       toggle:
-        icon: material/weather-night
-        name: Tema escuro
+        icon: material/palette-outline
+        name: Tokyo Night
+    - scheme: slate
+      primary: retro
+      accent: retro
+      toggle:
+        icon: material/palette-outline
+        name: Retro 82
   features:
     - navigation.tabs
     - navigation.indexes
@@ -59,6 +75,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/calculadoras.js
+  - javascripts/tema.js
 
 extra:
   generator: false

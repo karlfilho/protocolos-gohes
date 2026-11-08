@@ -11,6 +11,7 @@ Calculadoras, checklists e fluxogramas para usar à beira do leito. Cada ferrame
 | Calculadora | Para quê |
 |---|---|
 | [[Calculadora de idade gestacional]] | IG e data provável do parto pela DUM, pela USG (IG do laudo ou CCN) ou pelas duas |
+| [[Calculadora de peso fetal estimado]] | Peso fetal estimado pelas fórmulas de Hadlock e percentil pela curva de Hadlock |
 
 ## Checklists e formulários
 
