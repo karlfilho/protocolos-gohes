@@ -77,10 +77,11 @@ extra_javascript:
   - javascripts/calculadoras.js
   - javascripts/tema.js
   - javascripts/questoes.js
+  - javascripts/textos.js
 
 extra:
   generator: false
-  ordem_menu: [Para revisar, index, Protocolos, Ferramentas, Treinamento, Wiki, Questões, Novidades, Sobre, Fale conosco]
+  ordem_menu: [Para revisar, index, Protocolos, Textos-padrão, Fluxos, Ferramentas, Treinamento, Wiki, Questões, Novidades, Sobre, Fale conosco]
 
 hooks:
   - hooks/wiki.py

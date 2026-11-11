@@ -169,6 +169,14 @@ def on_files(files, config):
 def on_nav(nav, config, files):
     ordem = config['extra'].get('ordem_menu', [])
 
+    for item in nav.items:          # o MkDocs troca o hífen do nome da pasta por espaço ("Textos-padrão")
+        if item.is_section:
+            for filho in item.children:
+                if getattr(filho, 'file', None) and filho.file.src_uri.endswith('index.md'):
+                    t = metas.get(filho.file.src_uri, {}).get('title', '')
+                    if t and t.replace('-', ' ') == item.title:
+                        item.title = t
+
     def posicao(item):
         nome = item.title if item.is_section else posixpath.splitext(item.file.src_uri)[0]
         return ordem.index(nome) if nome in ordem else len(ordem)

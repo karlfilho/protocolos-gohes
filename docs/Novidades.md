@@ -6,6 +6,8 @@ Publicações e revisões, da mais recente para a mais antiga. Mudança de condu
 
 ## Novembro de 2026
 
+- **09/11/2026:** nova seção [Fluxos assistenciais](Fluxos/index.md), com o passo a passo de processos do serviço. Primeiro fluxo: [[Encaminhamento à Medicina Fetal]] (todo caso é notificado à Coordenação, que leva o caso ao CAISM; a paciente não agenda sozinha).
+- **09/11/2026:** nova seção [Textos-padrão](Textos-padrão/index.md), com textos prontos para copiar e colar no prontuário. Primeiro texto: [[Orientações de alta na perda gestacional precoce]].
 - **08/11/2026:** novo artigo na Wiki: [[Redatação da gestação]]. Novos questionários em Teste seu conhecimento: [[Questões sobre formas clínicas, causas e acolhimento na perda gestacional]], [[Questões sobre instabilidade hemodinâmica e sangramento]], [[Questões sobre parto com fórceps e episiotomia]] e [[Questões sobre ultrassonografia, datação e viabilidade]].
 - **08/11/2026:** nova seção [Teste seu conhecimento](Questões/index.md), com questões comentadas para estudar. Nada é registrado. Primeiro questionário: [[Questões sobre perda gestacional precoce]].
 - **08/11/2026:** novos artigos na Wiki: [[Parto com fórceps]] e [[Episiotomia]].

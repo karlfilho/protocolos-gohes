@@ -313,3 +313,12 @@
 .md-typeset .quiz-aviso { font-weight: 700; color: var(--c-ok); }
 .md-typeset .quiz-aviso--erro { color: var(--c-perigo); }
 .md-typeset .quiz-refazer { margin-top: .4em; }
+
+/* ---------- textos-padrão (copiar para o prontuário) ---------- */
+.md-typeset .texto-padrao { position: relative; border: 1px solid var(--cartao-borda); background: var(--cartao-bg);
+  border-radius: .4rem; padding: .8rem 1rem; margin: .6em 0 1.6em; }
+.md-typeset .tp-texto { white-space: pre-wrap; word-break: break-word; font-family: var(--md-text-font-family);
+  font-size: .82rem; line-height: 1.6; margin: .2rem 0 0; padding: 0; background: none; color: var(--md-typeset-color); }
+.md-typeset .tp-copiar { float: right; margin: 0 0 .4rem .8rem; }
+.md-typeset .tp-copiar.tp-copiado { color: var(--c-ok); border-color: var(--c-ok); }
+.md-typeset .tp-nota { font-size: .78rem; color: var(--md-default-fg-color--light); margin-bottom: .3em; }

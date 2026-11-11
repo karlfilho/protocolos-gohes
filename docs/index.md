@@ -17,6 +17,18 @@ Protocolos assistenciais, materiais de treinamento e consulta rápida da equipe 
 
     Condutas aprovadas pela Coordenação, com fluxogramas, quadros de doses e o PDF oficial.
 
+-   :material-content-copy:{ .lg } **[Textos-padrão](Textos-padrão/index.md)**
+
+    ---
+
+    Textos prontos para copiar e colar no prontuário eletrônico, escritos a partir dos protocolos.
+
+-   :material-sitemap-outline:{ .lg } **[Fluxos assistenciais](Fluxos/index.md)**
+
+    ---
+
+    Como pedir exames, encaminhar pacientes e acionar outros setores, passo a passo.
+
 -   :material-calculator-variant-outline:{ .lg } **[Ferramentas](Ferramentas/index.md)**
 
     ---
