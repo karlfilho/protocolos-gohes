@@ -10,31 +10,31 @@ Calcula a idade gestacional (IG) e a data provável do parto (DPP) pela data da 
 <div class="calc calc-ig" markdown="0">
   <div class="calc-linha">
     <label for="ig-ref">Data de referência</label>
-    <input type="text" id="ig-ref" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off">
+    <input type="text" id="ig-ref" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off" aria-describedby="ig-resultado">
   </div>
   <fieldset>
     <legend>Pela DUM</legend>
     <div class="calc-linha">
       <label for="ig-dum">Data da última menstruação</label>
-      <input type="text" id="ig-dum" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off">
+      <input type="text" id="ig-dum" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off" aria-describedby="ig-resultado">
     </div>
   </fieldset>
   <fieldset>
     <legend>Pela USG</legend>
     <div class="calc-linha">
       <label for="ig-usg-data">Data da USG</label>
-      <input type="text" id="ig-usg-data" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off">
+      <input type="text" id="ig-usg-data" class="calc-data" inputmode="numeric" maxlength="10" placeholder="dd/mm/aaaa" autocomplete="off" aria-describedby="ig-resultado">
     </div>
     <div class="calc-linha">
       <label for="ig-usg-sem">IG no laudo</label>
       <span class="calc-ig-laudo">
-        <input type="number" id="ig-usg-sem" min="0" max="44" inputmode="numeric" placeholder="sem"> +
-        <input type="number" id="ig-usg-dia" min="0" max="6" inputmode="numeric" placeholder="dias">
+        <input type="number" id="ig-usg-sem" min="0" max="44" inputmode="numeric" placeholder="sem" aria-label="IG no laudo: semanas" aria-describedby="ig-resultado"> +
+        <input type="number" id="ig-usg-dia" min="0" max="6" inputmode="numeric" placeholder="dias" aria-label="IG no laudo: dias" aria-describedby="ig-resultado">
       </span>
     </div>
     <div class="calc-linha">
       <label for="ig-ccn">ou CCN (mm)</label>
-      <input type="text" id="ig-ccn" inputmode="decimal" placeholder="15 a 84">
+      <input type="text" id="ig-ccn" inputmode="decimal" placeholder="15 a 84" autocomplete="off" aria-describedby="ig-resultado">
     </div>
     <p class="calc-ajuda">Informe a primeira USG acurada da gestação. Se o CCN for preenchido, ele é usado no lugar da IG do laudo.</p>
   </fieldset>

@@ -37,6 +37,12 @@
     else if (dig.length > 2) v = `${dig.slice(0, 2)}/${dig.slice(2)}`;
     if (v !== i.value) i.value = v;
   }
+  /* marca como inválidos (aria-invalid + borda vermelha) os campos com erro; limpa os demais */
+  function marcarInvalidos(raiz, ids) {
+    raiz.querySelectorAll('input').forEach((i) => {
+      if (ids.has(i.id)) i.setAttribute('aria-invalid', 'true'); else i.removeAttribute('aria-invalid');
+    });
+  }
   function numero(valor) {
     const t = String(valor || '').trim().replace(',', '.');
     return t === '' ? null : Number(t);
@@ -71,18 +77,18 @@
 
     function calcular() {
       const hoje = diaDe(ref.value);
-      const saida = [];
+      const saida = [], ruins = new Set();
       let dumDUM = null, dumUSG = null;
       [['ig-ref', 'de referência'], ['ig-dum', 'da DUM'], ['ig-usg-data', 'da USG']].forEach(([id, nome]) => {
-        if (dataInvalida($(id).value)) saida.push(`<p class="calc-erro">A data ${nome} não existe. Confira o dia e o mês.</p>`);
+        if (dataInvalida($(id).value)) { ruins.add(id); saida.push(`<p class="calc-erro">A data ${nome} não existe. Confira o dia e o mês.</p>`); }
       });
 
       /* 1. Pela DUM */
       const dum = diaDe($('ig-dum').value);
       if (dum !== null && hoje !== null) {
         const d = hoje - dum;
-        if (d < 0) saida.push('<p class="calc-erro">A DUM é posterior à data de referência.</p>');
-        else if (d > 44 * 7) saida.push('<p class="calc-erro">A DUM resulta em mais de 44 semanas. Confira a data.</p>');
+        if (d < 0) { ruins.add('ig-dum'); saida.push('<p class="calc-erro">A DUM é posterior à data de referência.</p>'); }
+        else if (d > 44 * 7) { ruins.add('ig-dum'); saida.push('<p class="calc-erro">A DUM resulta em mais de 44 semanas. Confira a data.</p>'); }
         else {
           dumDUM = dum;
           saida.push(`<p><span class="calc-rotulo">Pela DUM</span> ${ig(d)} · DPP <strong>${dataDe(dum + 280)}</strong></p>`);
@@ -97,6 +103,7 @@
       if (ccnTxt !== '') {
         const ccn = parseFloat(ccnTxt);
         if (isNaN(ccn) || ccn < 15 || ccn > 84) {
+          ruins.add('ig-ccn');
           saida.push('<p class="calc-erro">O CCN precisa estar entre 15 e 84 mm. Abaixo de 15 mm, a fórmula do INTERGROWTH-21st não vale; acima de 84 mm (cerca de 14 semanas), o CCN perde precisão e a datação usa outras medidas (DBP, CC, CA, CF). Fora dessa faixa, use a IG do laudo.</p>');
         } else {
           igExame = Math.round(igPorCCN(ccn));
@@ -104,14 +111,18 @@
         }
       } else if (sem !== '') {
         const s = parseInt(sem, 10), r = dia === '' ? 0 : parseInt(dia, 10);
-        if (isNaN(s) || isNaN(r) || s < 0 || s > 44 || r < 0 || r > 6) saida.push('<p class="calc-erro">IG do laudo inválida: semanas de 0 a 44 e dias de 0 a 6.</p>');
+        if (isNaN(s) || isNaN(r) || s < 0 || s > 44 || r < 0 || r > 6) {
+          if (isNaN(s) || s < 0 || s > 44) ruins.add('ig-usg-sem');
+          if (isNaN(r) || r < 0 || r > 6) ruins.add('ig-usg-dia');
+          saida.push('<p class="calc-erro">IG do laudo inválida: semanas de 0 a 44 e dias de 0 a 6.</p>');
+        }
         else { igExame = s * 7 + r; origem = `IG do laudo: ${ig(igExame)} no dia do exame`; }
       }
       if (igExame !== null) {
-        if (exame === null) saida.push('<p class="calc-erro">Informe a data da USG.</p>');
+        if (exame === null) { ruins.add('ig-usg-data'); saida.push('<p class="calc-erro">Informe a data da USG.</p>'); }
         else if (hoje !== null) {
           const d = hoje - exame + igExame;
-          if (exame > hoje) saida.push('<p class="calc-erro">A data da USG é posterior à data de referência.</p>');
+          if (exame > hoje) { ruins.add('ig-usg-data'); saida.push('<p class="calc-erro">A data da USG é posterior à data de referência.</p>'); }
           else {
             dumUSG = exame - igExame;
             saida.push(`<p><span class="calc-rotulo">Pela USG</span> ${ig(d)} · DPP <strong>${dataDe(dumUSG + 280)}</strong><br><small>${origem}, em ${dataDe(exame)}.</small></p>`);
@@ -141,6 +152,7 @@
         saida.push(`<p class="calc-nota">${txt} ${conduta}</p>`);
       }
 
+      marcarInvalidos(raiz, ruins);
       $('ig-resultado').innerHTML = saida.length ? saida.join('')
         : '<p class="calc-vazio">Preencha a DUM, a USG ou as duas.</p>';
     }
@@ -188,11 +200,11 @@
 
     function calcular() {
       const saida = [];
-      const m = {}, erros = [];
+      const m = {}, erros = [], ruins = new Set();
       [['dbp', 'DBP'], ['cc', 'CC'], ['ca', 'CA'], ['cf', 'CF']].forEach(([k, nome]) => {
         const v = numero($('pfe-' + k).value);
         if (v === null) return;
-        if (isNaN(v) || v <= 0 || v > 500) erros.push(`${nome} inválido.`);
+        if (isNaN(v) || v <= 0 || v > 500) { ruins.add('pfe-' + k); erros.push(`${nome} inválido.`); }
         else m[k] = v / 10;      /* mm -> cm */
       });
       erros.forEach((e) => saida.push(`<p class="calc-erro">${e} Informe a medida em milímetros.</p>`));
@@ -210,6 +222,8 @@
       if (sem !== '') {
         const s = parseInt(sem, 10), r = dia === '' ? 0 : parseInt(dia, 10);
         if (isNaN(s) || isNaN(r) || r < 0 || r > 6 || s < 10 || s > 40 || (s === 40 && r > 0)) {
+          if (isNaN(s) || s < 10 || s > 40) ruins.add('pfe-sem');
+          if (isNaN(r) || r < 0 || r > 6 || (s === 40 && r > 0)) ruins.add('pfe-dia');
           saida.push('<p class="calc-erro">A curva de Hadlock vai de 10 a 40 semanas: semanas de 10 a 40 e dias de 0 a 6.</p>');
         } else {
           const igSem = s + r / 7, med = medianaHadlock(igSem);
@@ -225,6 +239,7 @@
         }
       }
 
+      marcarInvalidos(raiz, ruins);
       $('pfe-resultado').innerHTML = saida.length ? saida.join('')
         : '<p class="calc-vazio">Preencha as medidas e a idade gestacional.</p>';
     }

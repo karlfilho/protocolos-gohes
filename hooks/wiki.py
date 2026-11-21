@@ -35,7 +35,9 @@ EXT_IMAGEM = {'.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.avif'}
 EXT_VIDEO = {'.mp4', '.webm', '.mov'}
 WIKILINK = re.compile(r'(!?)\[\[([^\[\]\n]+?)\]\]')
 CODIGO = re.compile(r'(^(?P<f>```|~~~).*?^(?P=f)[^\n]*$|`[^`\n]+`)', re.S | re.M)
-YOUTUBE = re.compile(r'!\[[^\]]*\]\((?:https?://)?(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([\w-]{11})[^)]*\)')
+YOUTUBE = re.compile(r'!\[([^\]]*)\]\((?:https?://)?(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([\w-]{11})[^)]*\)')
+# ![[figura.svg]] seguido da legenda em negrito ("**Figura N – …**"): a legenda vira o texto alternativo
+FIGURA_LEGENDA = re.compile(r'!\[\[([^\[\]|\n]+?\.(?:svg|png|jpe?g|gif|webp|avif))\]\](?=\s*\n(?:[ \t]*\n)*\*\*(Figura [^*\n]+)\*\*)', re.I)
 LISTA = re.compile(r'<!--\s*lista:\s*(.+?)\s*-->')
 COMENTARIO = re.compile(r'%%.*?%%', re.S)
 
@@ -222,7 +224,8 @@ def on_post_build(config):
 def transformar(texto, pagina, files):
     texto = COMENTARIO.sub('', texto)
     texto = callouts(texto)
-    texto = YOUTUBE.sub(lambda m: youtube(m.group(1)), texto)
+    texto = YOUTUBE.sub(lambda m: youtube(m.group(2), m.group(1)), texto)
+    texto = FIGURA_LEGENDA.sub(lambda m: f'![[{m.group(1)}|{m.group(2).strip()}]]', texto)
     texto = LISTA.sub(lambda m: lista(m.group(1), pagina), texto)
     return WIKILINK.sub(lambda m: wikilink(m, pagina), texto)
 
@@ -235,14 +238,21 @@ def wikilink(m, pagina):
         anexo = arquivos.get(nome.lower())
         if anexo is None:
             pendentes.setdefault(nome, set()).add(pagina.src_uri)
-            return f'<span class="wikilink-pendente">{html.escape(nome)}</span>'
+            return pendente(nome, 'arquivo ainda não publicado')
         url = link_relativo(pagina, anexo)
-        ext = posixpath.splitext(nome)[1].lower()
+        raiz, ext = posixpath.splitext(nome)
+        ext = ext.lower()
         if ext in EXT_IMAGEM:
-            largura = f'{{ width="{texto}" }}' if texto.isdigit() else ''
-            return f'[![{html.escape(texto if not texto.isdigit() else nome)}]({url}){largura}]({url})'
+            # texto alternativo: o texto do link, senão o nome do arquivo legível; nunca vazio,
+            # porque a imagem é o único conteúdo do link para o original
+            alt = texto if texto and not texto.isdigit() else 'Imagem: ' + re.sub(r'[-_]+', ' ', raiz)
+            attrs = 'loading="lazy"' + (f' width="{texto}"' if texto.isdigit() else '')
+            alt = alt.replace('[', '(').replace(']', ')')
+            return f'[![{html.escape(alt, quote=False)}]({url}){{ {attrs} }}]({url})'
         if ext in EXT_VIDEO:
-            return f'<video controls preload="metadata" src="{anexo.url_relative_to(pagina)}"></video>'
+            rotulo = texto or 'Vídeo: ' + re.sub(r'[-_]+', ' ', raiz)
+            return (f'<video controls preload="metadata" aria-label="{html.escape(rotulo)}" '
+                    f'src="{anexo.url_relative_to(pagina)}"></video>')
         rotulo = texto or nome
         return f'[:material-file-download-outline: {rotulo}]({url}){{ .md-button }}'
 
@@ -255,8 +265,7 @@ def wikilink(m, pagina):
     alvo = resolver_pagina(nome)
     if alvo is None:
         pendentes.setdefault(nome, set()).add(pagina.src_uri)
-        return (f'<span class="wikilink-pendente" title="Página ainda não publicada">'
-                f'{html.escape(texto or nome)}</span>')
+        return pendente(texto or nome, 'página ainda não publicada')
     url = link_relativo(pagina, alvo)
     if secao:
         url += '#' + slugify_titulo(secao, '-')
@@ -265,6 +274,12 @@ def wikilink(m, pagina):
             and metas.get(pagina.src_uri, {}).get('tipo') != 'protocolo':
         return f'[{rotulo}]({url}){{ .link-protocolo }}'            # remissão a item de protocolo: etiqueta
     return f'[{rotulo}]({url})'
+
+
+def pendente(rotulo, motivo):
+    """Link para o que ainda não existe: texto tracejado; o motivo vai na dica (mouse) e no leitor de tela."""
+    return (f'<span class="wikilink-pendente" title="{motivo.capitalize()}">{html.escape(rotulo)}'
+            f'<span class="so-leitor"> ({motivo})</span></span>')
 
 
 TIPOS_CALLOUT = {'todo': 'info', 'hint': 'tip', 'important': 'tip', 'caution': 'warning',
@@ -319,16 +334,20 @@ def questao(enunciado, corpo):
     html_ = ['', '<div class="quiz" markdown="1">', '',
              f'<p class="quiz-enunciado" markdown="span">{enunciado}</p>', '']
     html_ += antes + ['', '<ol class="quiz-alternativas" markdown="1">']
-    html_ += [f'<li class="quiz-alt" data-certa="{int(certa)}" tabindex="0" role="button" markdown="span">{txt}</li>'
+    # cada alternativa é um item da lista com um botão dentro: o leitor de tela anuncia
+    # "item 2 de 4" e o botão funciona com Enter/Espaço sem JS extra
+    html_ += [f'<li markdown="span"><button type="button" class="quiz-alt" data-certa="{int(certa)}">{txt}</button></li>'
               for certa, txt in alts]
-    html_ += ['</ol>', '', '<div class="quiz-comentario" hidden markdown="1">', '']
+    html_ += ['</ol>', '', '<p class="quiz-aviso" role="status"></p>', '',
+              '<div class="quiz-comentario" hidden markdown="1">', '']
     html_ += depois + ['', '</div>', '', '</div>', '']
     return html_
 
 
-def youtube(video_id):
+def youtube(video_id, titulo=''):
+    titulo = html.escape(titulo.strip() or 'Vídeo do YouTube')
     return (f'<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{video_id}" '
-            f'title="Vídeo" allowfullscreen loading="lazy" '
+            f'title="{titulo}" allowfullscreen loading="lazy" '
             f'allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe></div>')
 
 

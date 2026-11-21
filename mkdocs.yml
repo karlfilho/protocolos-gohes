@@ -78,6 +78,7 @@ extra_javascript:
   - javascripts/tema.js
   - javascripts/questoes.js
   - javascripts/textos.js
+  - javascripts/acessibilidade.js
 
 extra:
   generator: false

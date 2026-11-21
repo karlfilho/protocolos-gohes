@@ -16,13 +16,18 @@
       const pre = caixa.querySelector('.tp-texto');
       const botao = document.createElement('button');
       botao.type = 'button'; botao.className = 'md-button tp-copiar'; botao.textContent = 'Copiar texto';
+      const status = document.createElement('span');      /* anuncia o resultado ao leitor de tela */
+      status.className = 'so-leitor'; status.setAttribute('role', 'status');
       botao.addEventListener('click', async () => {
         const ok = await copiar(pre.textContent);
         botao.textContent = ok ? 'Copiado ✓' : 'Não foi possível copiar: selecione o texto';
+        status.textContent = ok ? 'Texto copiado' : 'Não foi possível copiar: selecione o texto';
         botao.classList.toggle('tp-copiado', ok);
-        setTimeout(() => { botao.textContent = 'Copiar texto'; botao.classList.remove('tp-copiado'); }, 2500);
+        setTimeout(() => {
+          botao.textContent = 'Copiar texto'; botao.classList.remove('tp-copiado'); status.textContent = '';
+        }, 2500);
       });
-      caixa.prepend(botao);
+      caixa.prepend(botao, status);
     });
   }
   if (typeof document$ !== 'undefined') document$.subscribe(iniciar);

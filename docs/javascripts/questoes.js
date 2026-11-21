@@ -1,6 +1,16 @@
-/* Questões "Teste seu conhecimento": revela a resposta e o comentário. Nada é registrado nem enviado. */
+/* Questões "Teste seu conhecimento": revela a resposta e o comentário. Nada é registrado nem enviado.
+   Cada alternativa é um <button> dentro de um <li> (gerado pelo hooks/wiki.py, função questao);
+   o resultado é anunciado ao leitor de tela pelo <p class="quiz-aviso" role="status">. */
 (function () {
   'use strict';
+  function aviso(quiz) {
+    let a = quiz.querySelector('.quiz-aviso');
+    if (!a) {     /* página gerada antes da mudança do hook */
+      a = document.createElement('p'); a.className = 'quiz-aviso'; a.setAttribute('role', 'status');
+      quiz.querySelector('.quiz-alternativas').after(a);
+    }
+    return a;
+  }
   function responder(quiz, escolhida) {
     if (quiz.dataset.respondida) return;
     quiz.dataset.respondida = '1';
@@ -12,14 +22,13 @@
     const acertou = escolhida.dataset.certa === '1';
     if (!acertou) escolhida.classList.add('quiz-errada');
     escolhida.classList.add('quiz-escolhida');
+    const letra = 'ABCDEFGH'[alts.indexOf(alts.find((a) => a.dataset.certa === '1'))] || '';
+    const av = aviso(quiz);
+    av.textContent = acertou ? '✓ Resposta correta'
+      : `✗ Resposta incorreta: a certa é a alternativa ${letra}, destacada acima`;
+    av.classList.toggle('quiz-aviso--erro', !acertou);
     const com = quiz.querySelector('.quiz-comentario');
-    if (com) {
-      let aviso = com.querySelector('.quiz-aviso');
-      if (!aviso) { aviso = document.createElement('p'); aviso.className = 'quiz-aviso'; com.prepend(aviso); }
-      aviso.textContent = acertou ? '✓ Resposta correta' : '✗ Resposta incorreta: a alternativa certa está destacada';
-      aviso.classList.toggle('quiz-aviso--erro', !acertou);
-      com.hidden = false;
-    }
+    if (com) com.hidden = false;
     let refazer = quiz.querySelector('.quiz-refazer');
     if (!refazer) {
       refazer = document.createElement('button');
@@ -35,6 +44,7 @@
       a.classList.remove('quiz-certa', 'quiz-errada', 'quiz-escolhida');
       a.removeAttribute('aria-disabled');
     });
+    aviso(quiz).textContent = '';
     const com = quiz.querySelector('.quiz-comentario'); if (com) com.hidden = true;
     const r = quiz.querySelector('.quiz-refazer'); if (r) r.hidden = true;
     const primeira = quiz.querySelector('.quiz-alt'); if (primeira) primeira.focus();
@@ -44,10 +54,7 @@
       if (quiz.dataset.pronto) return;
       quiz.dataset.pronto = '1';
       quiz.querySelectorAll('.quiz-alt').forEach((a) => {
-        a.addEventListener('click', (e) => { if (!e.target.closest('a')) responder(quiz, a); });
-        a.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); responder(quiz, a); }
-        });
+        a.addEventListener('click', () => responder(quiz, a));
       });
     });
   }

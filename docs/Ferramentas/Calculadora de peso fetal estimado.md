@@ -11,10 +11,10 @@ Calcula o peso fetal estimado (PFE) a partir da biometria da ultrassonografia (U
   <fieldset>
     <legend>Biometria (mm)</legend>
     <div class="calc-medidas">
-      <label>DBP <input type="text" id="pfe-dbp" inputmode="decimal" autocomplete="off"></label>
-      <label>CC <input type="text" id="pfe-cc" inputmode="decimal" autocomplete="off"></label>
-      <label>CA <input type="text" id="pfe-ca" inputmode="decimal" autocomplete="off"></label>
-      <label>CF <input type="text" id="pfe-cf" inputmode="decimal" autocomplete="off"></label>
+      <label>DBP <input type="text" id="pfe-dbp" inputmode="decimal" autocomplete="off" aria-describedby="pfe-resultado"></label>
+      <label>CC <input type="text" id="pfe-cc" inputmode="decimal" autocomplete="off" aria-describedby="pfe-resultado"></label>
+      <label>CA <input type="text" id="pfe-ca" inputmode="decimal" autocomplete="off" aria-describedby="pfe-resultado"></label>
+      <label>CF <input type="text" id="pfe-cf" inputmode="decimal" autocomplete="off" aria-describedby="pfe-resultado"></label>
     </div>
     <p class="calc-ajuda">DBP: diâmetro biparietal · CC: circunferência cefálica · CA: circunferência abdominal · CF: comprimento do fêmur. CA e CF são obrigatórios; com mais medidas, usa-se a fórmula mais completa.</p>
   </fieldset>
@@ -23,8 +23,8 @@ Calcula o peso fetal estimado (PFE) a partir da biometria da ultrassonografia (U
     <div class="calc-linha">
       <label for="pfe-sem">IG</label>
       <span class="calc-ig-laudo">
-        <input type="number" id="pfe-sem" min="10" max="40" inputmode="numeric" placeholder="sem"> +
-        <input type="number" id="pfe-dia" min="0" max="6" inputmode="numeric" placeholder="dias">
+        <input type="number" id="pfe-sem" min="10" max="40" inputmode="numeric" placeholder="sem" aria-label="IG: semanas" aria-describedby="pfe-resultado"> +
+        <input type="number" id="pfe-dia" min="0" max="6" inputmode="numeric" placeholder="dias" aria-label="IG: dias" aria-describedby="pfe-resultado">
       </span>
     </div>
     <p class="calc-ajuda">Use a IG da datação adotada (ver <a href="../calculadora-de-idade-gestacional/">Calculadora de idade gestacional</a>), não a IG estimada pela biometria do próprio exame.</p>

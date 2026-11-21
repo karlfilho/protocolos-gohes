@@ -32,6 +32,8 @@
     });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lista.hidden) { abrir(false); botao.focus(); } });
     document.addEventListener('click', (e) => { if (!menu.contains(e.target)) abrir(false); });
+    /* Tab para fora do menu: fecha sem puxar o foco de volta */
+    menu.addEventListener('focusout', (e) => { if (!lista.hidden && !menu.contains(e.relatedTarget)) abrir(false); });
     radios.forEach((r) => r.addEventListener('change', marcar));
     /* migração única: a escolha salva no esquema antigo (automático, claro, escuro; cor "custom")
        apontaria para outro tema na lista nova. Escuro -> Tokyo Night; claro -> Nord. */
