@@ -6,6 +6,7 @@ Publicações e revisões, da mais recente para a mais antiga. Mudança de condu
 
 ## Novembro de 2026
 
+- **24/11/2026:** o artigo [[Exame pélvico na perda gestacional]] foi ampliado com as medidas de acurácia do toque: sensibilidade e especificidade do colo aberto, valor preditivo positivo em diferentes prevalências (com exemplo em frequências naturais), comparação com os critérios ultrassonográficos, valores preditivos para restos ovulares e razões de verossimilhança dos achados do toque na suspeita de ectópica. A conduta do HES não mudou.
 - **09/11/2026:** nova seção [Fluxos assistenciais](Fluxos/index.md), com o passo a passo de processos do serviço. Primeiro fluxo: [[Encaminhamento à Medicina Fetal]] (todo caso é notificado à Coordenação, que leva o caso ao CAISM; a paciente não agenda sozinha).
 - **09/11/2026:** nova seção [Textos-padrão](Textos-padrão/index.md), com textos prontos para copiar e colar no prontuário. Primeiro texto: [[Orientações de alta na perda gestacional precoce]].
 - **08/11/2026:** novo artigo na Wiki: [[Redatação da gestação]]. Novos questionários em Teste seu conhecimento: [[Questões sobre formas clínicas, causas e acolhimento na perda gestacional]], [[Questões sobre instabilidade hemodinâmica e sangramento]], [[Questões sobre parto com fórceps e episiotomia]] e [[Questões sobre ultrassonografia, datação e viabilidade]].
